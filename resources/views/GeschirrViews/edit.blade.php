@@ -6,17 +6,17 @@
         <div class="col-md-6">
             <div class="card card-primary">
                 <div class="card-header">
-                <div class="card-title">{{ __('Produkt Hinzufügen') }}</div>
+                <div class="card-title">{{ __('Produkt ändern') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('Geschirr-store') }}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('Geschirr-update', $Geschirr->id) }}" enctype="multipart/form-data">
                         @csrf
-
+                        @method('put')
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $Geschirr->name) }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -43,7 +43,7 @@
                         <div class="form-floating">
 
                             <label for="beschreibung">{{ __('Beschreibung') }}</label>
-                            <textarea class="form-control" @error('beschreibung') is-invalid @enderror" name="beschreibung" value="{{ old('beschreibung') }}" required autocomplete="beschreibung" autofocus placeholder="Leave a comment here" id="beschreibung" style="height: 100px"></textarea>
+                            <textarea class="form-control" @error('beschreibung') is-invalid @enderror" name="beschreibung" value="{{ old('beschreibung', $Geschirr->beschreibung) }}" required autocomplete="beschreibung" autofocus placeholder="Leave a comment here" id="beschreibung" style="height: 100px"></textarea>
 
 
                                 @error('beschreibung')
@@ -56,7 +56,7 @@
                                 <label for="preis" class="col-md-4 col-form-label text-md-right">{{ __('Preis') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="preis" type="text" class="form-control @error('preis') is-invalid @enderror" name="preis" value="{{ old('preis') }}" required autocomplete="preis" autofocus>
+                                    <input id="preis" type="text" class="form-control @error('preis') is-invalid @enderror" name="preis" value="{{ old('preis', $Geschirr->preis) }}" required autocomplete="preis" autofocus>
 
                                     @error('preis')
                                         <span class="invalid-feedback" role="alert">
@@ -69,7 +69,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary float-leftt mt-3 p-3">
-                                    {{ __('Hinzufügen') }}
+                                    {{ __('Speichern') }}
                                 </button>
                                 <a  href="{{ route('Geschirr-index') }}" class="btn btn-secondary float-right mt-3 p-3" > Zurück</a>
                             </div>
@@ -80,6 +80,4 @@
         </div>
     </div>
 </div>
-
-
 @endsection

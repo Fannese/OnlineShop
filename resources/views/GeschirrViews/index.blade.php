@@ -1,12 +1,8 @@
 @extends('layouts.adminlte')
 @section('content')
-<div class="content">
-    <div class="container-fluid">
-
-
-<div class="row">
-    <div class="card mx-auto">
-    <div class="card card-success">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
 
             <div class="card-header">
 
@@ -16,22 +12,30 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
 
-<div class="card-body">
-        <table id="example1" class="display nowrap" cellspacing="0" width="100%" >
-            <thead>
-                <tr>
-                  <th style="width: 100px" >id</th>
-                  <th style="width: 100px">Name</th>
-                  <th style="width: 100px">Bild</th>
-                  <th style="width: 100px">Beschreibung</th>
-                  <th style="width: 100px">Preis</th>
+            <div class="card-body">
 
-                </tr>
-              </thead>
-              <tbody>
+                    @foreach($Geschirr as $geschirr)
+                    <div class="col-6 col-md-6">
 
-              </tbody>
-            </table>
+                            <a  href="{{ route('Geschirr-Home', $geschirr->id) }}"><img src="{{ asset('GeschirrBilder/'. $geschirr->bild) }}" class="img-fluid" width="200px" height="150px"  alt="bild" ></a>
+
+                            <dd>{{ $geschirr->name }}</dd>
+
+                            <dd>{{ $geschirr->preis }}</dd>
+                            <dd>
+                                <form action="{{ route('Geschirr-edit', $geschirr->id) }}" method="GET">
+                                    <input type="submit" class="btn btn-success  mt-3"  value="Ändern">
+
+                                </form>
+
+
+                                <form action="#" method="post" class="float-end">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="submit" class="btn btn-danger mt-3" value="Löschen">
+
+                    @endforeach
+
 
 
     </div>
@@ -39,5 +43,6 @@
 </div>
 </div>
 </div>
+
 
 @endsection

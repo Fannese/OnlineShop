@@ -52,7 +52,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('Geschirr-Home') }}" class="nav-link">
+                <a href="{{ route('Geschirr-index') }}" class="nav-link">
                   <i class="fas fa-adjust nav-icon"></i>
                   <p>Geschirr</p>
                 </a>
@@ -78,7 +78,7 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Haushalt Artikel
+                 Artikel verwalten
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>

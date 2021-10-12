@@ -10,11 +10,11 @@ class GeschirrModel extends Model
     use HasFactory;
     protected $table = 'geschirrs';
 
-    protected $faillable = [
+    protected $fillable = [
         'name',
         'bild',
         'beschreibung',
-        'Preis',
+        'preis',
 
     ];
 }

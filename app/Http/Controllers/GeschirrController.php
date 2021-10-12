@@ -42,19 +42,67 @@ class GeschirrController extends Controller
         $Geschirr = new GeschirrModel;
         $Geschirr->name = $request->input('name');
         $Geschirr->beschreibung = $request->input('beschreibung');
-        $Geschirr->Preis = $request->input('Preis');
+        $Geschirr->preis = $request->input('preis');
         if ($request->hasFile('bild')) {
             $file = $request->file('bild');
             $extention = $file->getClientOriginalName();
             $filename = time() . '.' . $extention;
             $file->move('GeschirrBilder/', $filename);
-            $Geschirr->$file = $filename;
+            $Geschirr->bild = $filename;
         }
 
         $Geschirr->save();
+        return view('GeschirrViews.create');
+    }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\GeschirrModel  $Geschirr
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $Geschirr = GeschirrModel::find($id);
+        return view('GeschirrViews.edit', compact('Geschirr'));
+    }
+    public function update(Request $request, $id)
+    {
 
+        $Geschirr = GeschirrModel::find($id);
+        $Geschirr->name = $request->input('name');
+        $Geschirr->beschreibung = $request->input('beschreibung');
+        $Geschirr->preis = $request->input('preis');
+        if ($request->hasFile('bild')) {
+            $destination = 'GeschirrBilder/' . $Geschirr->bild;
+            if (File::exists($destination)) {
+                File::delete($destination);
+            }
+            $file = $request->file('bild');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extention;
 
+            $file->move('GeschirrBilder/', $filename);
+            $Geschirr->bild = $filename;
+        }
+        $Geschirr->save();
+        return view('GeschirrViews.index');
+    }
 
-        return view('GeschirrViews.create')->with('message', 'Produkt.$produkte->name(). Hinzugeführt');
+    public function destroy($id)
+    {
+        $Geschirr = GeschirrModel::find($id);
+        $Geschirr->delete();
+        return view('GeschirrViews.index');
+    }
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\GeschirrModel  $Geschirr
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $Geschirr = GeschirrModel::find($id);
+        return view('GeschirrViews.show')->with('Geschirr', $Geschirr);
     }
 }

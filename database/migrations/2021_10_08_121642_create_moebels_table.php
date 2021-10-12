@@ -18,7 +18,7 @@ class CreateMoebelsTable extends Migration
             $table->string('name');
             $table->string('bild');
             $table->string('beschreibung');
-            $table->string('Preis');
+            $table->string('preis');
             $table->timestamps();
         });
     }
