@@ -26,7 +26,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/Geschirr-index', [GeschirrController::class, 'index'])->name('Geschirr-index');
 Route::get('/Geschirr-create', [GeschirrController::class, 'create'])->name('Geschirr.create');
 Route::post('/Geschirr-store', [GeschirrController::class, 'store'])->name('Geschirr-store');
-Route::get('/Geschirr/{id}', [GeschirrController::class, 'show'])->name('Geschirr-Home');
+Route::get('/Geschirr.show/{id}', [GeschirrController::class, 'show'])->name('Geschirr.show');
 Route::get('/Geschirr/{id}', [GeschirrController::class, 'edit'])->name('Geschirr-edit');
 Route::put('/Geschirr/{id}', [GeschirrController::class, 'update'])->name('Geschirr-update');
 Route::delete('/Geschirr/{id}', [GeschirrController::class, 'destroy'])->name('Geschirr-loeschen');

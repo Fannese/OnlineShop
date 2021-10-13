@@ -3,13 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\GeschirrModel;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
 class GeschirrController extends Controller
 
 {
-
+    /**
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index']);
+        $this->middleware('admin')->except(['index']);
+    }
+     */
     /**
      * Display a listing of the resource.
      *
@@ -54,6 +61,21 @@ class GeschirrController extends Controller
         $Geschirr->save();
         return view('GeschirrViews.create');
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\GeschirrModel  $Geschirr
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $Geschirr = GeschirrModel::findOrFail($id);
+        $users = User::all();
+
+        $renderData = ['users' => $users, 'Geschirr' => $Geschirr];
+        return view('GeschirrViews.show', compact('renderData'));
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -93,16 +115,5 @@ class GeschirrController extends Controller
         $Geschirr = GeschirrModel::find($id);
         $Geschirr->delete();
         return view('GeschirrViews.index');
-    }
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\GeschirrModel  $Geschirr
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $Geschirr = GeschirrModel::find($id);
-        return view('GeschirrViews.show')->with('Geschirr', $Geschirr);
     }
 }
