@@ -34,6 +34,7 @@ class GeschirrController extends Controller
      */
     public function create()
     {
+        // $this->authorize('create', GeschirrModel::class);
         return view('GeschirrViews.create');
     }
     /**
@@ -50,6 +51,7 @@ class GeschirrController extends Controller
         $Geschirr->name = $request->input('name');
         $Geschirr->beschreibung = $request->input('beschreibung');
         $Geschirr->preis = $request->input('preis');
+        $Geschirr->anzahl = $request->input('anzahl');
         if ($request->hasFile('bild')) {
             $file = $request->file('bild');
             $extention = $file->getClientOriginalName();
@@ -91,9 +93,13 @@ class GeschirrController extends Controller
     {
 
         $Geschirr = GeschirrModel::find($id);
+
+        // $this->authorize('update', $Geschirr);
+
         $Geschirr->name = $request->input('name');
         $Geschirr->beschreibung = $request->input('beschreibung');
         $Geschirr->preis = $request->input('preis');
+        $Geschirr->anzahl = $request->input('anzahl');
         if ($request->hasFile('bild')) {
             $destination = 'GeschirrBilder/' . $Geschirr->bild;
             if (File::exists($destination)) {
@@ -113,6 +119,12 @@ class GeschirrController extends Controller
     public function destroy($id)
     {
         $Geschirr = GeschirrModel::find($id);
+        if ($Geschirr->bild) {
+            $path = 'GeschirrBilder/' . $Geschirr->bild;
+            if (File::exists($path)) {
+                File::delete($path);
+            }
+        }
         $Geschirr->delete();
         return view('GeschirrViews.index');
     }

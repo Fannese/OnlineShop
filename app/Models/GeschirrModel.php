@@ -15,6 +15,7 @@ class GeschirrModel extends Model
         'bild',
         'beschreibung',
         'preis',
+        'anzahl',
 
     ];
 }

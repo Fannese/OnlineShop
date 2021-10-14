@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Gate;
 
 class GeschirrPolicy
 {
+    /**
+    public function before($user, $ability)
+    {
+        if ($user->role_as === 'admin') {
+            return true;
+        }
+    }
     use HandlesAuthorization;
 
     /**
@@ -18,12 +25,7 @@ class GeschirrPolicy
      * @return \Illuminate\Auth\Access\Response|bool
      *
      */
-    public function before($user, $ability)
-    {
-        if ($user->role_as === 'admin') {
-            return true;
-        }
-    }
+
     public function viewAny(User $user)
     {
         //
@@ -49,7 +51,7 @@ class GeschirrPolicy
      */
     public function create(User $user)
     {
-        //
+        // return $user->hasPermission('admin');
     }
 
     /**
@@ -72,7 +74,6 @@ class GeschirrPolicy
      */
     public function delete(User $user, GeschirrModel $geschirr)
     {
-        //
     }
 
     /**
@@ -84,7 +85,6 @@ class GeschirrPolicy
      */
     public function restore(User $user, GeschirrModel $geschirr)
     {
-        //
     }
 
     /**
@@ -96,6 +96,5 @@ class GeschirrPolicy
      */
     public function forceDelete(User $user, GeschirrModel $geschirr)
     {
-        //
     }
 }

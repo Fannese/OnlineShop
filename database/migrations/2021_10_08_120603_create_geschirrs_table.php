@@ -19,6 +19,7 @@ class CreateGeschirrsTable extends Migration
             $table->string('bild');
             $table->string('beschreibung');
             $table->string('preis');
+            $table->string('anzahl');
             $table->timestamps();
         });
     }
