@@ -62,7 +62,7 @@
                                     <label for="anzahl" class="col-md-4 col-form-label text-md-right">{{ __('Anzahl') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="anzahl" type="text" class="form-control @error('anzahl') is-invalid @enderror" name="anzahl" value="{{ old('anzahl') }}" required autocomplete="anzahl" autofocus>
+                                        <input id="anzahl" type="text" class="form-control @error('anzahl') is-invalid @enderror" name="anzahl" value="{{ old('anzahl', $Geschirr->anzahl) }}" required autocomplete="anzahl" autofocus>
 
                                         @error('anzahl')
                                             <span class="invalid-feedback" role="alert">

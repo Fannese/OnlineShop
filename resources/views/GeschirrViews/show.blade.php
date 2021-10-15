@@ -3,11 +3,12 @@
 
 <div class="py-3 mb-4 shadow-sm bg-warning border-top">
     <div class="container">
+
         <h6 class="mb-0">Geschirr/{{ $renderData['Geschirr']->name }}</h6>
     </div>
 </div>
 <div class="container-fluid">
-    <div class="card shadow">
+    <div class="card shadow" id="Geschirr_daten">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4 border-right">
@@ -15,7 +16,7 @@
                 </div>
                     <div class="col-md-8">
 
-                        <h2 class="mb-0 bg-dark" > {{ $renderData['Geschirr']->name}}
+                        <h2 class="mb-0 bg-dark"> {{ $renderData['Geschirr']->name}}
                             <label style="font-size: 16px;" class="float-end badge bg-danger trending_tag"> Teller</label>
                         </h2>
                         <hr>
@@ -29,21 +30,27 @@
                         @endif
                 <div class="row mt-2">
                     <div class="col-md-2">
-                        <label for="name">{{ __('Menge') }}</label>
+                        <input type="hidden" value="{{ $renderData['Geschirr']->id }}" id="geschirr_id">
+                        <label for="anzahl">{{ __('Menge') }}</label>
                         <div class="input-group text-center mb-3">
 
-                            <span class="input-group-text">-</span>
+                            <button class="input-group-text" id="decrement-btn">-</button>
 
-                            <input type="text" name="name" value="1" class="form-control">
-                            <span class="input-group-text">+</span>
+                            <input type="text" name="anzahl " class="form-control text-center" id="anzahl-input" value="1">
+                            <button class="input-group-text" id="increment-btn" >+</button>
 
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+                    <div class="col-md-9">
+                        <br>
+                        <button type="button" class="btn btn-primary me-3 float-start" id="warenkrop">In Warenkrop Hinzufügen<i class="fas fa-shopping-cart"></i></button>
+                    </div>
+
     </div>
 </div>
 </div>
 </div>
+@include('WarenkropViews.warenkrophinzufuegen')
+@include('GeschirrViews.counter')
 @endsection

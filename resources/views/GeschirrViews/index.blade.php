@@ -13,7 +13,7 @@
                     @foreach($Geschirr as $geschirr)
                     <div class="col-6 col-md-6">
                         <figure>
-                           <img src="{{ asset('GeschirrBilder/'. $geschirr->bild) }}" width="150px" height="150px"   alt="bild" >
+                           <img src="{{ asset('GeschirrBilder/'. $geschirr->bild) }}" width="300px" height="200px"   alt="bild" >
                         </figure>
                         <a href="/Geschirr.show/{{ $geschirr->id }}"><dd>{{ $geschirr->name }}</dd></a>
 
