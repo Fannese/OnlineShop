@@ -5,23 +5,23 @@
     $(document).ready(function() {
         $('#increment-btn').click(function (e) {
             e.preventDefault();
-            var inc_value= $('#anzahl-input').val();
+            var inc_value= $(this).closest('#Geschirr_daten').find('#anzahl-input').val();
             var value = parseInt(inc_value, 10);
             value = isNaN(value) ? 0 : value;
             if(value<10){
                 value++;
-                $('#anzahl-input').val(value);
+                $(this).closest('#Geschirr_daten').find('#anzahl-input').val(value);
             }
         });
 
         $('#decrement-btn').click(function (e) {
             e.preventDefault();
-            var dec_value= $('#anzahl-input').val();
+            var dec_value= $(this).closest('#Geschirr_daten').find('#anzahl-input').val();
             var value = parseInt(dec_value, 10);
             value = isNaN(value) ? 0 : value;
             if(value>1){
                 value--;
-                $('#anzahl-input').val(value);
+                $(this).closest('#Geschirr_daten').find('#anzahl-input').val(value);
             }
         });
     });

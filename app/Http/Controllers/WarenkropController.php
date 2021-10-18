@@ -35,4 +35,15 @@ class WarenkropController extends Controller
             return response()->json(['status', 'melden Sie sich an um vorzufahren!']);
         }
     }
+    public function show()
+    {
+        $Waren = WarenkropModel::where('user_id', Auth::id())->get();
+        return view('WarenkropViews.index', compact('Waren'));
+    }
+    public function destroy($id)
+    {
+        $Waren = WarenkropModel::findOrFail($id);
+
+        $Waren->delete();
+    }
 }

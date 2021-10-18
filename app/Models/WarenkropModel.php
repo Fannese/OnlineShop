@@ -14,4 +14,9 @@ class WarenkropModel extends Model
         'geschirr_id',
         'menge',
     ];
+
+    public function geschirrzugriff()
+    {
+        return $this->belongsTo(GeschirrModel::class, 'geschirr_id', 'id');
+    }
 }

@@ -23,20 +23,26 @@ Route::get('/', function () {
 });
 Route::get('/', [FrontendController::class, 'index']);
 Auth::routes();
-
+//Warenkrop
 Route::middleware(['auth'])->group(function () {
     Route::post('warenkrop-hinzufuegen', [WarenkropController::class, 'hinzufuegen']);
+    Route::get('/waren', [WarenkropController::class, 'show'])->name('warenkrop');
+    Route::delete('/loeschen/{id}', [WarenkropController::class, 'destroy'])->name('loeschen');
+});
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/Geschirr-create', [GeschirrController::class, 'create'])->name('Geschirr.create');
+    Route::get('/Geschirr/{id}', [GeschirrController::class, 'edit'])->name('Geschirr-edit');
+    Route::put('/Geschirr/{id}', [GeschirrController::class, 'update'])->name('Geschirr-update');
+    Route::delete('/Geschirr/{id}', [GeschirrController::class, 'destroy'])->name('Geschirr-loeschen');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/Geschirr-index', [GeschirrController::class, 'index'])->name('Geschirr-index');
-Route::get('/Geschirr-create', [GeschirrController::class, 'create'])->name('Geschirr.create')->middleware('auth');
+
 Route::post('/Geschirr-store', [GeschirrController::class, 'store'])->name('Geschirr-store');
 Route::get('/Geschirr.show/{id}', [GeschirrController::class, 'show'])->name('Geschirr.show');
-Route::get('/Geschirr/{id}', [GeschirrController::class, 'edit'])->name('Geschirr-edit')->middleware('auth');
-Route::put('/Geschirr/{id}', [GeschirrController::class, 'update'])->name('Geschirr-update')->middleware('auth');
-Route::delete('/Geschirr/{id}', [GeschirrController::class, 'destroy'])->name('Geschirr-loeschen')->middleware('auth'); #
 
-//Warenkrop
+
+
 
 
 Route::get('/Elektronik-Home', [ElektronikController::class, 'index'])->name('Elektronik-Home');
