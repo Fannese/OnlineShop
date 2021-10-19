@@ -24,6 +24,7 @@
                 $(this).closest('#Geschirr_daten').find('#anzahl-input').val(value);
             }
         });
+
     });
 
 

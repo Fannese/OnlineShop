@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CheckController;
 use App\Http\Controllers\ElektronikController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\GeschirrController;
@@ -28,6 +29,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('warenkrop-hinzufuegen', [WarenkropController::class, 'hinzufuegen']);
     Route::get('/waren', [WarenkropController::class, 'show'])->name('warenkrop');
     Route::delete('/loeschen/{id}', [WarenkropController::class, 'destroy'])->name('loeschen');
+    Route::get('check', [CheckController::class, 'index'])->name('ueberpruefen');
 });
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/Geschirr-create', [GeschirrController::class, 'create'])->name('Geschirr.create');
@@ -40,7 +42,7 @@ Route::get('/Geschirr-index', [GeschirrController::class, 'index'])->name('Gesch
 
 Route::post('/Geschirr-store', [GeschirrController::class, 'store'])->name('Geschirr-store');
 Route::get('/Geschirr.show/{id}', [GeschirrController::class, 'show'])->name('Geschirr.show');
-
+Route::post('update-menge', [WarenkropController::class, 'update']);
 
 
 

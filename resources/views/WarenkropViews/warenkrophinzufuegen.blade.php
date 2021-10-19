@@ -12,7 +12,7 @@
         }
     });
     $.ajax({
-        type: "Post",
+        method: "Post",
         url: "/warenkrop-hinzufuegen",
         data: {
             'geschirr_id': geschirr_id,

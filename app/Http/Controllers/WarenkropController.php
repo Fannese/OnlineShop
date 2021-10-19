@@ -32,7 +32,7 @@ class WarenkropController extends Controller
                 }
             }
         } else {
-            return response()->json(['status', 'melden Sie sich an um vorzufahren!']);
+            return response()->json(['status' => 'melden Sie sich an um vorzufahren!']);
         }
     }
     public function show()
@@ -40,10 +40,26 @@ class WarenkropController extends Controller
         $Waren = WarenkropModel::where('user_id', Auth::id())->get();
         return view('WarenkropViews.index', compact('Waren'));
     }
+    public function update(Request $request)
+    {
+
+        $geschirr_id = $request->input('geschirr_id');
+        $menge = $request->input('menge');
+        if (Auth::check()) {
+            if (WarenkropModel::where('geschirr_id',  $geschirr_id)->where('user_id', Auth::id())->exists()) {
+                $produkt = WarenkropModel::where('geschirr_id',  $geschirr_id)->where('user_id', Auth::id())->first();
+                $produkt->geschirr_id = $geschirr_id;
+                $produkt->menge = $menge;
+                $produkt->update();
+                return response()->json(['status' => 'menge upgedatet!']);
+            }
+        }
+    }
     public function destroy($id)
     {
         $Waren = WarenkropModel::findOrFail($id);
 
         $Waren->delete();
+        return back()->with('status', 'Produkt erfolgreich gelöscht.');
     }
 }
