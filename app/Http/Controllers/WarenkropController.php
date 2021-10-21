@@ -28,33 +28,34 @@ class WarenkropController extends Controller
                     $PoduktItem->user_id = Auth::id();
                     $PoduktItem->menge = $menge;
                     $PoduktItem->save();
-                    return response()->json(['status' => $produkt_check->name . 'In Warenkrop hinzugeführt!']);
+                    return response()->json(['status' => $produkt_check->name . 'wurde im Warenkrop hinzugeführt!']);
                 }
             }
         } else {
             return response()->json(['status' => 'melden Sie sich an um vorzufahren!']);
         }
     }
+
     public function show()
     {
         $Waren = WarenkropModel::where('user_id', Auth::id())->get();
         return view('WarenkropViews.index', compact('Waren'));
     }
+
     public function update(Request $request)
     {
-
         $geschirr_id = $request->input('geschirr_id');
         $menge = $request->input('menge');
         if (Auth::check()) {
             if (WarenkropModel::where('geschirr_id',  $geschirr_id)->where('user_id', Auth::id())->exists()) {
                 $produkt = WarenkropModel::where('geschirr_id',  $geschirr_id)->where('user_id', Auth::id())->first();
-                $produkt->geschirr_id = $geschirr_id;
                 $produkt->menge = $menge;
-                $produkt->update();
-                return response()->json(['status' => 'menge upgedatet!']);
+                $produkt->save();
+                return response()->json(['status' => 'Menge upgedatet!']);
             }
         }
     }
+
     public function destroy($id)
     {
         $Waren = WarenkropModel::findOrFail($id);

@@ -21,8 +21,8 @@
         <a class="nav-link" data-widget="navbar-search" href="#" role="button">
           <i class="fas fa-search"></i>
         </a>
-        <a class="nav-link" href="{{ route('warenkrop') }}" role="button">
-            <i class="fas fa-shopping-cart"></i>
+        <a class="nav-link" href="{{ route('waren') }}" role="button">
+            <i class="fas fa-shopping-cart"></i>+99 <span class="visually-hidden"></span>
           </a>
         <div class="navbar-search-block">
           <form class="form-inline">

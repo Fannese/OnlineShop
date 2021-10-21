@@ -47,7 +47,7 @@ class GeschirrController extends Controller
 
     {
         #dd($request->all(), $request);
-        $Geschirr = new GeschirrModel;
+        $Geschirr = new GeschirrModel();
         $Geschirr->name = $request->input('name');
         $Geschirr->beschreibung = $request->input('beschreibung');
         $Geschirr->preis = $request->input('preis');

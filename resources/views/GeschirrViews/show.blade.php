@@ -44,7 +44,7 @@
                 </div>
                     <div class="col-md-9">
                         <br>
-                        <button type="button" class="btn btn-primary me-3 float-start" id="warenkrop">In Warenkrop Hinzufügen<i class="fas fa-shopping-cart"></i></button>
+                        <button type="button" class="btn btn-primary me-3 float-start" id="warenkrop">In Warenkorp Hinzufügen<i class="fas fa-shopping-cart"></i></button>
                     </div>
 
     </div>

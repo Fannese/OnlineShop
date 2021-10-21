@@ -25,6 +25,30 @@
             }
         });
 
+         $('#mengeUpdate').click(function (e) {
+            e.preventDefault();
+            var geschirr_id=  $(this).closest('#mengeUpdate').find('#geschirr_id').val();
+            var menge = $(this).closest('#mengeUpdate').find('#anzahl-input').val();
+            data={
+            'geschirr_id': geschirr_id,
+            'menge': menge,
+        },
+            $.ajaxSetup({
+         headers: {
+             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+        $.ajax({
+            method: "POST",
+            url: "update-menge",
+            data: data,
+            success: function (response) {
+               window.location.reload();
+
+            }
+        });
+        });
+
     });
 
 

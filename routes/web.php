@@ -5,6 +5,7 @@ use App\Http\Controllers\ElektronikController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\GeschirrController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderModelController;
 use App\Http\Controllers\WarenkropController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,9 +28,10 @@ Auth::routes();
 //Warenkrop
 Route::middleware(['auth'])->group(function () {
     Route::post('warenkrop-hinzufuegen', [WarenkropController::class, 'hinzufuegen']);
-    Route::get('/waren', [WarenkropController::class, 'show'])->name('warenkrop');
+    Route::get('/warenkorp', [WarenkropController::class, 'show'])->name('waren');
     Route::delete('/loeschen/{id}', [WarenkropController::class, 'destroy'])->name('loeschen');
     Route::get('check', [CheckController::class, 'index'])->name('ueberpruefen');
+    Route::post('/uebersicht', [CheckController::class, 'store'])->name('order');
 });
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/Geschirr-create', [GeschirrController::class, 'create'])->name('Geschirr.create');

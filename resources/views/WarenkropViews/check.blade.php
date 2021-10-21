@@ -2,15 +2,22 @@
 @section('content')
 
     <div class="container-fluid">
+        <div>
+            @if(session()->has('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+            @endif
+        </div>
+        <form method="POST" action="{{ route('order') }}">
+            @csrf
         <div class="row">
         <div class="col-md-7" >
             <div class="card">
             <div class="card-body">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header bg-primary">{{ __('Angaben') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+                <div class="card-body bg-dark">
 
                         <div class="form-group row">
                             <label for="vorname" class="col-md-4 col-form-label text-md-right">{{ __('Vorname') }}</label>
@@ -106,26 +113,27 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="telephon" class="col-md-4 col-form-label text-md-right">{{ __('Telephon') }}</label>
+                            <label for="telephon_nummer" class="col-md-4 col-form-label text-md-right">{{ __('Telephon') }}</label>
 
                             <div class="col-md-6">
-                                <input id="telephon" type="integer" placeholder="Gibt Telephonnummer"  class="form-control @error('telephon') is-invalid @enderror" name="telephon" value="{{ old('telephon') }}" required autocomplete="telephon">
+                                <input id="telephon_nummer" type="integer" placeholder="Gibt Telephonnummer"  class="form-control @error('telephon_nummer') is-invalid @enderror" name="telephon_nummer" value="{{ old('telephon_nummer') }}" required autocomplete="telephon_nummer">
 
-                                @error('telephon')
+                                @error('telephon_nummer')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                         </div>
+                </div>
             </div>
-        </div>
         </div>
     </div>
     <div class="col-md-5">
         <div class="card">
             <div class="card-body">
-                <h6> Show </h6>
+
+                <div class="card-header bg-primary">{{ __('Order Details') }}</div>
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
@@ -139,16 +147,18 @@
                     <tr>
                         <td>{{ $wareItems->geschirrzugriff->name }}</td>
                         <td>{{ $wareItems->menge }}</td>
-                        <td> {{ $wareItems->geschirrzugriff->preis }}</td>
+                        <td> {{ ((int)$wareItems->geschirrzugriff->preis * (int)$wareItems->menge )}}</td>
                     </tr>
-
                     @endforeach
-
-
                 </table>
+                        <button type="submit" class="btn btn-primary float-right my-2">
+                            {{ __('Order') }}
+                        </button>
             </div>
+            <a href="{{ route('waren') }}" class="btn btn-dark">Zurück</a>
         </div>
     </div>
 </div>
-       </div>
+    </div>
+
                 @endsection
