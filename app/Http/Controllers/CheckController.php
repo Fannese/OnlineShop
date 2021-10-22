@@ -26,7 +26,16 @@ class CheckController extends Controller
         $order->plz = $request->input('plz');
         $order->stadt = $request->input('stadt');
         $order->land = $request->input('land');
+        $order->zalung_methode = $request->input('zalung_methode');
+        $order->zalung_id = $request->input('zalung_id');
         $order->telephon_nummer = $request->input('telephon_nummer');
+
+        $preistotal = 0;
+        $caritempreis = WarenkropModel::where('user_id', Auth::id())->get();
+        foreach ($caritempreis as $prod) {
+            $preistotal += ((int)$prod->geschirrzugriff->preis * (int)$prod->menge);
+        }
+        $order->totalpreis = $preistotal;
         $order->sendung_nr = 'shop' . rand(1111, 9999);
 
         $order->save();
@@ -42,7 +51,10 @@ class CheckController extends Controller
         }
         $WareItems = WarenkropModel::where('user_id', Auth::id())->get();
         WarenkropModel::destroy($WareItems);
+        if ($request->input('zalung_methode') == 'Paypal') {
+            return response()->json(['status' => 'Bestellung erfolgreich']);
+        }
 
-        return redirect('/')->with('message', 'erfolgreich');
+        return redirect('/')->with('message', 'Bestellung erfolgreich');
     }
 }

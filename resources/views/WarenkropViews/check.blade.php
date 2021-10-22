@@ -15,6 +15,10 @@
         <div class="col-md-7" >
             <div class="card">
             <div class="card-body">
+                @php
+                    $preistotal = 0;
+
+                @endphp
                 <div class="card-header bg-primary">{{ __('Angaben') }}</div>
 
                 <div class="card-body bg-dark">
@@ -134,6 +138,8 @@
             <div class="card-body">
 
                 <div class="card-header bg-primary">{{ __('Order Details') }}</div>
+                <hr>
+                @if($WareItems->count()>0)
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
@@ -148,17 +154,89 @@
                         <td>{{ $wareItems->geschirrzugriff->name }}</td>
                         <td>{{ $wareItems->menge }}</td>
                         <td> {{ ((int)$wareItems->geschirrzugriff->preis * (int)$wareItems->menge )}}</td>
+
+                        <h6 class="px-2"> Total Summe<span class="float-end">{{ $preistotal +=((int)$wareItems->geschirrzugriff->preis)}}</span></h6>
                     </tr>
                     @endforeach
                 </table>
+
+                <input type="hidden" name="zalung_methode" value="COO">
                         <button type="submit" class="btn btn-primary float-right my-2">
-                            {{ __('Order') }}
+                            Order | COO
                         </button>
+                        <div id="paypal-button-container"></div>
             </div>
+            @else
+            <h4 class="text-center">Kein Produkt vorhanden</h4>
+            @endif
             <a href="{{ route('waren') }}" class="btn btn-dark">Zurück</a>
         </div>
+
+
     </div>
 </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+     <script src="https://www.paypal.com/sdk/js?client-id=Ab-Ly3i6-ZDpTAMaIoEifbZGUkO2TNXwMhDz5vi72XXW_vpQJNAjAklhsK4nc_3WN4hQPklZgduOhvOK"></script>
+
+<script>
+
+paypal.Buttons({
+  createOrder: function(data, actions) {
+    // This function sets up the details of the transaction, including the amount and line item details.
+    return actions.order.create({
+      purchase_units: [{
+        amount: {
+          value: '{{  $preistotal }}'
+        }
+      }]
+    });
+  },
+
+  onApprove: function(data, actions) {
+    // This function captures the funds from the transaction.
+    return actions.order.capture().then(function(details) {
+
+      // This function shows a transaction success message to your buyer.
+      //alert('Transaction completed by ' + details.payer.name.given_name);
+      var vorname=$('#vorname').val();
+      var name=$('#name').val();
+      var email=$('#email').val();
+      var straße=$('#straße').val();
+      var plz=$('#plz').val();
+      var stadt=$('#stadt').val();
+      var land=$('#land').val();
+      var telephon_nummer=$('#telephon_nummer').val();
+      $.ajax({
+          method: "post",
+          url: "/order",
+          data: {
+              'vorname': response.vorname,
+              'name': response.name,
+              'email': response.email,
+              'straße': response.straße,
+              'plz': response.plz,
+              'stadt': response.stadt,
+              'land':response.land,
+              'telephon_nummer':response.telephon_nummer,
+              'zalung_methode': "Paypal",
+              'zalung_id':response.details.id,
+          },
+          success: function (response) {
+              swal(response.status);
+              windows.location.href="/my-orders";
+
+          }
+      });
+
+    });
+
+  }
+
+}).render('#paypal-button-container');
+
+
+</script>
 
                 @endsection

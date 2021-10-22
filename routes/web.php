@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\GeschirrController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderModelController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\WarenkropController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/loeschen/{id}', [WarenkropController::class, 'destroy'])->name('loeschen');
     Route::get('check', [CheckController::class, 'index'])->name('ueberpruefen');
     Route::post('/uebersicht', [CheckController::class, 'store'])->name('order');
+    //Route::post('handle-payment', [PaymentController::class, 'handelpayment'])->name('handle');
 });
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/Geschirr-create', [GeschirrController::class, 'create'])->name('Geschirr.create');

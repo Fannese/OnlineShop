@@ -9,6 +9,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensures optimal rendering on mobile devices. -->
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal Internet -->
   <title>Family/Shop</title>
 
   <!-- Google Font: Source Sans Pro -->
@@ -54,6 +57,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('/assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('/assets/dist/js/adminlte.min.js') }}"></script>
+<!-- Required. Replace YOUR_CLIENT_ID with your sandbox client ID. -->
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID"> </script>
+
 
 </body>
 </html>

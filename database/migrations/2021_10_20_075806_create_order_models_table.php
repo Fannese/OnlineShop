@@ -25,6 +25,9 @@ class CreateOrderModelsTable extends Migration
             $table->string('land');
             $table->string('telephon_nummer');
             $table->string('sendung_nr');
+            $table->string('totalpreis');
+            $table->string('zalung_methode');
+            $table->string('zalung_id')->nullable();
             $table->timestamps();
         });
     }
