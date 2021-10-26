@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 mt-3">
 
             <div class="card-header">
             <a href="{{ route('Geschirr.create') }}" class="float-right"> Hinzufügen </a>
@@ -15,6 +15,7 @@
                         <figure>
                            <img src="{{ asset('GeschirrBilder/'. $geschirr->bild) }}" width="300px" height="200px"   alt="bild" >
                         </figure>
+                        <div class="card-body text-center">
                         <a href="/Geschirr.show/{{ $geschirr->id }}"><dd>{{ $geschirr->name }}</dd></a>
 
                             <dd>{{ $geschirr->preis }}</dd>

@@ -3,32 +3,32 @@
 <script type="text/javascript">
 
     $(document).ready(function() {
-        $('#increment-btn').click(function (e) {
+        $("#increment-btn").click(function (e) {
             e.preventDefault();
-            var inc_value= $(this).closest('#Geschirr_daten').find('#anzahl-input').val();
+            var inc_value= $(this).closest("#Geschirr_daten").find("#anzahl-input").val();
             var value = parseInt(inc_value, 10);
             value = isNaN(value) ? 0 : value;
             if(value<10){
                 value++;
-                $(this).closest('#Geschirr_daten').find('#anzahl-input').val(value);
+                $(this).closest("#Geschirr_daten").find("#anzahl-input").val(value);
             }
         });
 
-        $('#decrement-btn').click(function (e) {
+        $("#decrement-btn").click(function (e) {
             e.preventDefault();
-            var dec_value= $(this).closest('#Geschirr_daten').find('#anzahl-input').val();
+            var dec_value= $(this).closest("#Geschirr_daten").find("#anzahl-input").val();
             var value = parseInt(dec_value, 10);
             value = isNaN(value) ? 0 : value;
             if(value>1){
                 value--;
-                $(this).closest('#Geschirr_daten').find('#anzahl-input').val(value);
+                $(this).closest("#Geschirr_daten").find("#anzahl-input").val(value);
             }
         });
 
-         $('#mengeUpdate').click(function (e) {
+         $(".mengeUpdate").click(function (e) {
             e.preventDefault();
-            var geschirr_id=  $(this).closest('#mengeUpdate').find('#geschirr_id').val();
-            var menge = $(this).closest('#mengeUpdate').find('#anzahl-input').val();
+            var geschirr_id=  $(this).closest("#Geschirr_daten").find("#geschirr_id").val();
+            var menge = $(this).closest("#Geschirr_daten").find("#anzahl-input").val();
             data={
             'geschirr_id': geschirr_id,
             'menge': menge,
@@ -48,6 +48,12 @@
             }
         });
         });
+            $(".mengeUpdate").hover(function (e) {
+                $(this).css("background-color", "green");
+
+                    }, function(){
+                            $(this).css("background-color", "white");
+                    });
 
     });
 

@@ -57,8 +57,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('/assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('/assets/dist/js/adminlte.min.js') }}"></script>
+<!--<script type="text/javascript" src="responsive-tables.js"></script>-->
 <!-- Required. Replace YOUR_CLIENT_ID with your sandbox client ID. -->
-<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID"> </script>
 
 
 </body>

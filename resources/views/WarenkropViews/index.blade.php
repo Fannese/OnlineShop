@@ -1,6 +1,5 @@
 @extends('layouts.adminlte')
 @section('content')
-
     <div class="container-fluid">
         <div class="card shadow" >
             <div class="card-body">
@@ -17,14 +16,14 @@
                 <hr>
                 <label class="me-3">Preis:{{ $waren->geschirrzugriff->preis }}</label>
             <div class="col-md-3">
-                <div id="mengeUpdate">
+
                 <input type="hidden"  id="geschirr_id">
-                  <label for="anzahl">{{ __('Menge') }}</label>
+                  <label for="geschirr_id">{{ __('Menge') }}</label>
                 <div class="input-group text-center mb-3">
 
             <button class="input-group-text mengeUpdate" id="decrement-btn">-</button>
 
-            <input type="text" name="anzahl" class="form-control text-center" id="anzahl-input" value="{{ $waren->menge }}">
+            <input type="text" name="anzahl-input" class="form-control text-center" id="anzahl-input" value="{{ $waren->menge }}">
 
             <button class="input-group-text mengeUpdate" id="increment-btn" >+</button>
 
@@ -71,5 +70,6 @@
     @include('GeschirrViews.counter')
         </div>
     </div>
+
 @endsection
 

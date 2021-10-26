@@ -54,13 +54,7 @@
               <li class="nav-item">
                 <a href="{{ route('Geschirr-index') }}" class="nav-link">
                   <i class="fas fa-adjust nav-icon"></i>
-                  <p>Geschirr</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Möbel</p>
+                  <p>Produkt</p>
                 </a>
               </li>
             </ul>
@@ -68,7 +62,11 @@
 
         </ul>
       </nav>
-
+      <div class="nav-item">
+        <a href="{{ route('Bestellungen.index') }}" class="nav-link">
+            <i class="fas fa-user-circle">AdminLte</i>
+        </a>
+      </div>
  <!--verwaltung-->
 
       <!-- /.sidebar-menu -->

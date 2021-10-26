@@ -155,21 +155,23 @@
                         <td>{{ $wareItems->menge }}</td>
                         <td> {{ ((int)$wareItems->geschirrzugriff->preis * (int)$wareItems->menge )}}</td>
 
-                        <h6 class="px-2"> Total Summe<span class="float-end">{{ $preistotal +=((int)$wareItems->geschirrzugriff->preis)}}</span></h6>
+                        <h6 class="px-2"> Total Summe <span class="float-end">{{ $preistotal +=((int)$wareItems->geschirrzugriff->preis * (int)$wareItems->menge )}}</span></h6>
                     </tr>
                     @endforeach
                 </table>
 
-                <input type="hidden" name="zalung_methode" value="COO">
+
                         <button type="submit" class="btn btn-primary float-right my-2">
                             Order | COO
                         </button>
+                        <input type="hidden" name="zalung_methode" value="">
                         <div id="paypal-button-container"></div>
             </div>
             @else
             <h4 class="text-center">Kein Produkt vorhanden</h4>
             @endif
-            <a href="{{ route('waren') }}" class="btn btn-dark">Zurück</a>
+        </form>
+            <a href="{{ route('waren') }}" class="btn btn-dark"><i class="fas fa-arrow-circle-left">Zurück</i></a>
         </div>
 
 

@@ -11,6 +11,7 @@ class FrontendController extends Controller
     public function index()
     {
         //vorschau_produkt=GeschirrModel::where()
-        return view('frontend.index');
+        $Sliders = GeschirrModel::all();
+        return view('frontend.index', compact('Sliders'));
     }
 }

@@ -22,7 +22,7 @@
           <i class="fas fa-search"></i>
         </a>
         <a class="nav-link" href="{{ route('waren') }}" role="button">
-            <i class="fas fa-shopping-cart"></i>+99 <span class="visually-hidden"></span>
+            <i class="fas fa-shopping-cart"></i><span class="visually-hidden"></span>
           </a>
         <div class="navbar-search-block">
           <form class="form-inline">

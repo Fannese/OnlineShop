@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CheckController;
 use App\Http\Controllers\ElektronikController;
 use App\Http\Controllers\Frontend\FrontendController;
@@ -40,6 +41,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/Geschirr/{id}', [GeschirrController::class, 'edit'])->name('Geschirr-edit');
     Route::put('/Geschirr/{id}', [GeschirrController::class, 'update'])->name('Geschirr-update');
     Route::delete('/Geschirr/{id}', [GeschirrController::class, 'destroy'])->name('Geschirr-loeschen');
+    Route::get('/Bestellungen', [AdminController::class, 'index'])->name('Bestellungen.index');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/Geschirr-index', [GeschirrController::class, 'index'])->name('Geschirr-index');
