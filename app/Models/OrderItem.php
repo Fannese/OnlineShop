@@ -15,4 +15,8 @@ class OrderItem extends Model
         'menge',
         'preis',
     ];
+    public function items()
+    {
+        return $this->belongsTo(OrderModel::class);
+    }
 }

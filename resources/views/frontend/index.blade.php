@@ -12,7 +12,7 @@
             <div class="owl-carousel owl-theme">
 
                     @foreach($Sliders as $key=>$sliders)
-                    <div class="item {{$key == 0 ? 'active' : ''}}">
+                    <div class="item" {{$key == 0 ? 'active' : ''}}>
                 <div class="item my-5">
                     <div class="card">
                     <img src="{{ asset('GeschirrBilder/'. $sliders->bild) }}" width="100px" height="200px"   alt="..." >

@@ -10,8 +10,9 @@
 
             <div class="card-body">
 
-                    @foreach($Geschirr as $geschirr)
-                    <div class="col-6 col-md-6">
+                    @foreach($Geschirr as $key=> $geschirr)
+                    <div class="col-6 col-md-6" {{$key == 0 ? 'active' : ''}}>
+
                         <figure>
                            <img src="{{ asset('GeschirrBilder/'. $geschirr->bild) }}" width="300px" height="200px"   alt="bild" >
                         </figure>

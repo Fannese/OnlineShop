@@ -62,11 +62,41 @@
 
         </ul>
       </nav>
-      <div class="nav-item">
-        <a href="{{ route('Bestellungen.index') }}" class="nav-link">
-            <i class="fas fa-user-circle">AdminLte</i>
-        </a>
-      </div>
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+               <li class="nav-item menu-open">
+                <a href="#" class="nav-link active">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
+                   admin
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+          <li class="nav-item">
+
+            <a href="#" class="nav-link">
+                <i class="fas fa-user-circle">Userlist</i>
+            </a>
+          </li>
+
+              <li class="nav-item">
+                <a href="{{ route('Bestellungen.index') }}" class="nav-link">
+                    <i class="fas fa-clipboard-list">Orderlist</i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+
+                </a>
+              </li>
+
+               </li>
+
+        </ul>
+      </nav>
+
+
  <!--verwaltung-->
 
       <!-- /.sidebar-menu -->

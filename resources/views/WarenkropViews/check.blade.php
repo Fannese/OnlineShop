@@ -155,16 +155,16 @@
                         <td>{{ $wareItems->menge }}</td>
                         <td> {{ ((int)$wareItems->geschirrzugriff->preis * (int)$wareItems->menge )}}</td>
 
-                        <h6 class="px-2"> Total Summe <span class="float-end">{{ $preistotal +=((int)$wareItems->geschirrzugriff->preis * (int)$wareItems->menge )}}</span></h6>
+                        <h6 class="px-2"> Total Summe <span class="float-end">{{ $preistotal+=((int)$wareItems->geschirrzugriff->preis * (int)$wareItems->menge ) }}</span></h6>
                     </tr>
                     @endforeach
                 </table>
 
-
-                        <button type="submit" class="btn btn-primary float-right my-2">
-                            Order | COO
+                <input type="hidden" name="zalung_methode" value="COD">
+                        <button type="submit" class="btn btn-primary w-100 mb-2">
+                            Order | COD
                         </button>
-                        <input type="hidden" name="zalung_methode" value="">
+
                         <div id="paypal-button-container"></div>
             </div>
             @else
@@ -180,7 +180,7 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-     <script src="https://www.paypal.com/sdk/js?client-id=Ab-Ly3i6-ZDpTAMaIoEifbZGUkO2TNXwMhDz5vi72XXW_vpQJNAjAklhsK4nc_3WN4hQPklZgduOhvOK"></script>
+     <script src="https://www.paypal.com/sdk/js?client-id=ARt3bJcllFh-eoF63scl6nYiAJLBgmoZkdzIK2qTuDrbNF5mRSBl34Ou9SpSSVylpfW0xu_bIp_BrHbx"></script>
 
 <script>
 
@@ -214,14 +214,14 @@ paypal.Buttons({
           method: "post",
           url: "/order",
           data: {
-              'vorname': response.vorname,
-              'name': response.name,
-              'email': response.email,
-              'straße': response.straße,
-              'plz': response.plz,
-              'stadt': response.stadt,
-              'land':response.land,
-              'telephon_nummer':response.telephon_nummer,
+              'vorname': vorname,
+              'name': name,
+              'email': email,
+              'straße': straße,
+              'plz': plz,
+              'stadt': stadt,
+              'land':land,
+              'telephon_nummer':telephon_nummer,
               'zalung_methode': "Paypal",
               'zalung_id':response.details.id,
           },

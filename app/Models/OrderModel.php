@@ -30,4 +30,8 @@ class OrderModel extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
+    public function zugriff()
+    {
+        return $this->belongsTo(GeschirrModel::class, 'geschirr_id', 'id');
+    }
 }
