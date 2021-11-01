@@ -63,6 +63,9 @@
 
                          <td>{{ $order->menge }}</td>
                          <td>{{ $order->preis }}</td>
+                         <td>
+                            <a href="{{ url('/edit/'.$order->id) }}" class="btn btn-dark">Edit</a>
+                         </td>
 
                     @endforeach
 
@@ -72,7 +75,8 @@
             </div>
 
 
-            <a href="{{ route('waren') }}" class="btn btn-dark"><i class="fas fa-arrow-circle-left">Zurück</i></a>
+            <a href="{{ route('waren') }}" class="btn btn-warning"><i class="fas fa-arrow-circle-left">Zurück</i></a>
+
         </div>
 
 

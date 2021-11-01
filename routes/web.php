@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\OrderlistController;
+use App\Http\Controllers\Admin\listController;
 use App\Http\Controllers\CheckController;
 use App\Http\Controllers\ElektronikController;
 use App\Http\Controllers\Frontend\FrontendController;
@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/loeschen/{id}', [WarenkropController::class, 'destroy'])->name('loeschen');
     Route::get('check', [CheckController::class, 'index'])->name('ueberpruefen');
     Route::post('/uebersicht', [CheckController::class, 'store'])->name('order');
+    Route::post('payment', [CheckController::class, 'rezorpay']);
     //Route::post('handle-payment', [PaymentController::class, 'handelpayment'])->name('handle');
 });
 Route::middleware(['auth', 'admin'])->group(function () {
@@ -41,9 +42,12 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/Geschirr/{id}', [GeschirrController::class, 'edit'])->name('Geschirr-edit');
     Route::put('/Geschirr/{id}', [GeschirrController::class, 'update'])->name('Geschirr-update');
     Route::delete('/Geschirr/{id}', [GeschirrController::class, 'destroy'])->name('Geschirr-loeschen');
-    Route::get('/Bestellungen', [OrderlistController::class, 'index'])->name('Bestellungen.index');
-    Route::get('/admin/view-orders/{id}', [OrderlistController::class, 'show']);
-    Route::post('adminstore', [OrderlistController::class, 'store'])->name('admin.store');
+    Route::get('/Bestellungen', [listController::class, 'index'])->name('Bestellungen.index');
+    Route::get('/admin/view-orders/{id}', [listController::class, 'show']);
+    Route::post('adminstore', [listController::class, 'store'])->name('admin.store');
+    Route::get('/edit/{id}', [listController::class, 'edit']);
+    Route::put('/update/{id}', [listController::class, 'update']);
+    Route::get('users_list', [listController::class, 'user'])->name('user');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/Geschirr-index', [GeschirrController::class, 'index'])->name('Geschirr-index');

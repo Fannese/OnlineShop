@@ -67,7 +67,7 @@
                with font-awesome or any other icon font library -->
                <li class="nav-item menu-open">
                 <a href="#" class="nav-link active">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
+
                   <p>
                    admin
                     <i class="right fas fa-angle-left"></i>
@@ -75,14 +75,16 @@
                 </a>
           <li class="nav-item">
 
-            <a href="#" class="nav-link">
-                <i class="fas fa-user-circle">Userlist</i>
+            <a href="{{ route('user') }}" class="nav-link">
+                <i class="fas fa-user-circle"></i>
+                <p> Userlist </p>
             </a>
           </li>
 
               <li class="nav-item">
                 <a href="{{ route('Bestellungen.index') }}" class="nav-link">
-                    <i class="fas fa-clipboard-list">Orderlist</i>
+                    <i class="fas fa-clipboard-list"></i>
+                    <p> Orderlist </p>
                 </a>
               </li>
               <li class="nav-item">

@@ -27,7 +27,7 @@
                             <label for="vorname" class="col-md-4 col-form-label text-md-right">{{ __('Vorname') }}</label>
 
                             <div class="col-md-6">
-                                <input id="vorname" type="text" placeholder="Gibt Vorname" class="form-control @error('vorname') is-invalid @enderror" name="vorname" value="{{ old('vorname') }}" required autocomplete="vorname" autofocus>
+                                <input id="vorname" type="text" placeholder="Gibt Vorname" class="form-control vorname @error('vorname') is-invalid @enderror" name="vorname" value="{{ old('vorname') }}" required autocomplete="vorname" autofocus>
 
                                 @error('vorname')
                                     <span class="invalid-feedback" role="alert">
@@ -40,7 +40,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" placeholder="Gibt name"  class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" placeholder="Gibt name"  class="form-control name @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -54,7 +54,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" placeholder="Gibt Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" placeholder="Gibt Email" class="form-control email @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -67,7 +67,7 @@
                             <label for="straße" class="col-md-4 col-form-label text-md-right">{{ __('Straße') }}</label>
 
                             <div class="col-md-6">
-                                <input id="straße" type="text" placeholder="Gibt Strasse"  class="form-control @error('straße') is-invalid @enderror" name="straße" value="{{ old('straße') }}" required autocomplete="straße">
+                                <input id="straße" type="text" placeholder="Gibt Strasse"  class="form-control straße @error('straße') is-invalid @enderror" name="straße" value="{{ old('straße') }}" required autocomplete="straße">
 
                                 @error('straße')
                                     <span class="invalid-feedback" role="alert">
@@ -80,7 +80,7 @@
                             <label for="plz" class="col-md-4 col-form-label text-md-right">{{ __('PLZ') }}</label>
 
                             <div class="col-md-6">
-                                <input id="plz" type="integer" placeholder="Gibt Postlerzahl"  class="form-control @error('plz') is-invalid @enderror" name="plz" value="{{ old('plz') }}" required autocomplete="plz" autofocus>
+                                <input id="plz" type="integer" placeholder="Gibt Postlerzahl"  class="form-control plz @error('plz') is-invalid @enderror" name="plz" value="{{ old('plz') }}" required autocomplete="plz" autofocus>
 
                                 @error('plz')
                                     <span class="invalid-feedback" role="alert">
@@ -94,7 +94,7 @@
                             <label for="stadt" class="col-md-4 col-form-label text-md-right">{{ __('Stadt') }}</label>
 
                             <div class="col-md-6">
-                                <input id="stadt" type="text" placeholder="Gibt Stadt"  class="form-control @error('stadt') is-invalid @enderror" name="stadt" value="{{ old('stadt') }}" required autocomplete="stadt" autofocus>
+                                <input id="stadt" type="text" placeholder="Gibt Stadt"  class="form-control stadt @error('stadt') is-invalid @enderror" name="stadt" value="{{ old('stadt') }}" required autocomplete="stadt" autofocus>
 
                                 @error('stadt')
                                     <span class="invalid-feedback" role="alert">
@@ -107,7 +107,7 @@
                             <label for="land" class="col-md-4 col-form-label text-md-right">{{ __('Land') }}</label>
 
                             <div class="col-md-6">
-                                <input id="land" type="text" placeholder="Gibt Land"  class="form-control @error('land') is-invalid @enderror" name="land" value="{{ old('land') }}" required autocomplete="land" autofocus>
+                                <input id="land" type="text" placeholder="Gibt Land"  class="form-control land @error('land') is-invalid @enderror" name="land" value="{{ old('land') }}" required autocomplete="land" autofocus>
 
                                 @error('land')
                                     <span class="invalid-feedback" role="alert">
@@ -120,7 +120,7 @@
                             <label for="telephon_nummer" class="col-md-4 col-form-label text-md-right">{{ __('Telephon') }}</label>
 
                             <div class="col-md-6">
-                                <input id="telephon_nummer" type="integer" placeholder="Gibt Telephonnummer"  class="form-control @error('telephon_nummer') is-invalid @enderror" name="telephon_nummer" value="{{ old('telephon_nummer') }}" required autocomplete="telephon_nummer">
+                                <input id="telephon_nummer" type="integer" placeholder="Gibt Telephonnummer"  class="form-control telephon_nummer @error('telephon_nummer') is-invalid @enderror" name="telephon_nummer" value="{{ old('telephon_nummer') }}" required autocomplete="telephon_nummer">
 
                                 @error('telephon_nummer')
                                     <span class="invalid-feedback" role="alert">
@@ -161,9 +161,10 @@
                 </table>
 
                 <input type="hidden" name="zalung_methode" value="COD">
-                        <button type="submit" class="btn btn-primary w-100 mb-2">
+                        <button type="submit" class="btn btn-success w-100 mb-2">
                             Order | COD
                         </button>
+                        <button type="button" class="btn btn-primary w-100 mb-2 razorpay_btn"> zahlen mit Razorpay </button>
 
                         <div id="paypal-button-container"></div>
             </div>
@@ -240,5 +241,5 @@ paypal.Buttons({
 
 
 </script>
-
+@include('WarenkropViews.razorpayement')
                 @endsection

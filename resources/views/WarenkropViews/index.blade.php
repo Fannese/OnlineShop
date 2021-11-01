@@ -51,7 +51,7 @@
             @endphp
 
         </div>
-    </div>
+
 
 
 @endforeach
@@ -66,10 +66,10 @@
         </form>
 </div>
     </div>
+</div>
     @include('WarenkropViews.warenkrophinzufuegen')
     @include('GeschirrViews.counter')
-        </div>
-    </div>
+
 
 @endsection
 
