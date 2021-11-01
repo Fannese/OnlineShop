@@ -16,7 +16,7 @@ class CreateOrderModelsTable extends Migration
         Schema::create('order_models', function (Blueprint $table) {
             $table->id();
             $table->string('vorname');
-            $table->string('user_id');
+            $table->bigInteger('user_id');
             $table->string('name');
             $table->string('email')->unique();
             $table->string('straße');

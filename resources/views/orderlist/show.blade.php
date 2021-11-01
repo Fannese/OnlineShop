@@ -7,9 +7,9 @@
         <div class="col-md-12" >
             <div class="card">
 
-            <div class="card-body bg-dark">
+            <div class="card-body">
                 <div class="row">
-                <div class="col-md-6 order-details"><h4 class=" card-header bg-primary">{{ __('Angaben') }}</h4>
+                <div class="col-md-6 order-details"><h4 class=" card-header bg-primary">{{ __('Shopping Details') }}</h4>
 <hr>
                             <label  for="">{{ __('Vorname') }}</label>
                                 <div class="border">{{ $orders->vorname }} </div>
@@ -45,12 +45,29 @@
                     <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Bild</th>
                             <th>Menge</th>
                             <th>Preis</th>
                         </tr>
                     </thead>
-               <tr>{{ $orders->totalpreis }}</tr>
+                    <tbody>
+                        <tr>
+                            <td>{{ $prods->name }}</td>
+                            <td>
+                                <figure>
+                                    <img src="{{ asset('GeschirrBilder/'. $prods->bild) }}" width="300px" height="200px"   alt="bild" >
+                                 </figure>
+                             </td>
+                    @foreach($orders->oderitems as $order)
 
+
+                         <td>{{ $order->menge }}</td>
+                         <td>{{ $order->preis }}</td>
+
+                    @endforeach
+
+                </tr>
+            </tbody>
                 </table>
             </div>
 

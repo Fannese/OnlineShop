@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\GeschirrModel;
 use Illuminate\Http\Request;
 use App\Models\OrderModel;
 use App\Models\OrderItem;
@@ -19,9 +20,9 @@ class OrderlistController extends Controller
     }
     public function show($id)
     {
-
+        $prods = GeschirrModel::where('id', $id)->first();
         $orders = OrderModel::where('id', $id)->first();
         // dd($orders);
-        return view('orderlist.show', compact('orders'));
+        return view('orderlist.show', compact('orders', 'prods'));
     }
 }

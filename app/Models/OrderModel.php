@@ -28,7 +28,7 @@ class OrderModel extends Model
     ];
     public function oderitems()
     {
-        return $this->hasMany(OrderItem::class);
+        return $this->hasMany(OrderItem::class, 'order_id', 'id');
     }
     public function zugriff()
     {
