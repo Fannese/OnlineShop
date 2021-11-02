@@ -155,11 +155,11 @@
                         <td>{{ $wareItems->menge }}</td>
                         <td> {{ ((int)$wareItems->geschirrzugriff->preis * (int)$wareItems->menge )}}</td>
 
-                        <h6 class="px-2"> Total Summe <span class="float-end">{{ $preistotal+=((int)$wareItems->geschirrzugriff->preis * (int)$wareItems->menge ) }}</span></h6>
+                        <h6> Total Summe <span class="float-end">{{ $preistotal+=((int)$wareItems->geschirrzugriff->preis * (int)$wareItems->menge ) }}</span></h6>
                     </tr>
                     @endforeach
                 </table>
-
+<hr>
                 <input type="hidden" name="zalung_methode" value="COD">
                         <button type="submit" class="btn btn-success w-100 mb-2">
                             Order | COD
@@ -182,6 +182,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
      <script src="https://www.paypal.com/sdk/js?client-id=ARt3bJcllFh-eoF63scl6nYiAJLBgmoZkdzIK2qTuDrbNF5mRSBl34Ou9SpSSVylpfW0xu_bIp_BrHbx"></script>
+     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <script>
 
@@ -192,6 +193,7 @@ paypal.Buttons({
       purchase_units: [{
         amount: {
           value: '{{  $preistotal }}'
+
         }
       }]
     });
@@ -203,17 +205,17 @@ paypal.Buttons({
 
       // This function shows a transaction success message to your buyer.
       //alert('Transaction completed by ' + details.payer.name.given_name);
-      var vorname=$('#vorname').val();
-      var name=$('#name').val();
-      var email=$('#email').val();
-      var straße=$('#straße').val();
-      var plz=$('#plz').val();
-      var stadt=$('#stadt').val();
-      var land=$('#land').val();
-      var telephon_nummer=$('#telephon_nummer').val();
+      var vorname=$('.vorname').val();
+      var name=$('.name').val();
+      var email=$('.email').val();
+      var straße=$('.straße').val();
+      var plz=$('.plz').val();
+      var stadt=$('.stadt').val();
+      var land=$('.land').val();
+      var telephon_nummer=$('.telephon_nummer').val();
       $.ajax({
           method: "post",
-          url: "/order",
+          url: "/payment",
           data: {
               'vorname': vorname,
               'name': name,
@@ -227,6 +229,7 @@ paypal.Buttons({
               'zalung_id':response.details.id,
           },
           success: function (response) {
+
               swal(response.status);
               windows.location.href="/my-orders";
 

@@ -35,6 +35,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('check', [CheckController::class, 'index'])->name('ueberpruefen');
     Route::post('/uebersicht', [CheckController::class, 'store'])->name('order');
     Route::post('payment', [CheckController::class, 'rezorpay']);
+    Route::get('Bewertung', [CheckController::class, 'bewertung']);
     //Route::post('handle-payment', [PaymentController::class, 'handelpayment'])->name('handle');
 });
 Route::middleware(['auth', 'admin'])->group(function () {

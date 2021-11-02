@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BewertungsModel;
+use App\Models\GeschirrModel;
 use App\Models\OrderItem;
 use App\Models\OrderModel;
 use App\Models\WarenkropModel;
@@ -62,7 +64,7 @@ class CheckController extends Controller
         $WareItems = WarenkropModel::where('user_id', Auth::id())->get();
         $preistotal = 0;
         foreach ($WareItems as $item) {
-            $preistotal += $item->geschirrzugriff->preis * $item->menge;
+            $preistotal +=  ((int)$item->geschirrzugriff->preis * (int)$item->menge);
         }
         $vorname = $request->input('vorname');
         $name = $request->input('name');
@@ -84,5 +86,37 @@ class CheckController extends Controller
             'telephon_nummer' => $telephon_nummer,
             'preistotal' => $preistotal,
         ]);
+    }
+
+    public function bewertung(Request $request)
+    {
+        $sterne = $request->input('product_rating');
+        $geschirr_id = $request->input('geschirr_id');
+        $prod_check = GeschirrModel::where('id', $geschirr_id)->first();
+        if ($prod_check) {
+            $verified_purchase = OrderModel::where('order_models.user_id', Auth::id())
+                ->join('order_items', 'order_models.id', 'order_items.order_id')
+                ->where('order_items.geschirr_id', $geschirr_id)->get();
+            if ($verified_purchase) {
+
+                $existierende_bewertung = BewertungsModel::where('user_id', Auth::id())->where('geschirr_id', $geschirr_id)->first();
+                if ($existierende_bewertung) {
+                    $existierende_bewertung->sterne = $sterne;
+                    $existierende_bewertung->update();
+                } else {
+                    BewertungsModel::create([
+                        'user_id' => Auth::id(),
+                        'geschirr_id' => $geschirr_id,
+                        'sterne' => $sterne,
+
+                    ]);
+                }
+                return redirect()->back()->with('status', "Vielen dank für ihre Bewertung");
+            } else {
+                return redirect()->back()->with('status', "Sie können keine Bewertung abgeben");
+            }
+        } else {
+            return redirect()->back()->with('status', "der Link ist ungültig");
+        }
     }
 }

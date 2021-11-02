@@ -34,14 +34,19 @@ else{
     });
 $.ajax({
     method: "post",
-    url: "payment",
-    data: "data",
+    url: "/payment",
+    data: data,
     success: function (response) {
-
+        alert(response.preistotal);
     }
 });
 }
 
         });
     });
+</script>
+
+
+<script>
+
 </script>

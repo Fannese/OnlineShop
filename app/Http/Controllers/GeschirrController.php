@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BewertungsModel;
 use App\Models\GeschirrModel;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -74,9 +75,16 @@ class GeschirrController extends Controller
     {
         $Geschirr = GeschirrModel::findOrFail($id);
         $users = User::all();
+        $bewertung = BewertungsModel::where('geschirr_id', $Geschirr->id)->get();
+        $sumk_bewertung =  BewertungsModel::where('geschirr_id', $Geschirr->id)->sum('sterne');
 
+        if ($bewertung->count() > 0) {
+            $bewertung_value = $sumk_bewertung / $bewertung->count();
+        } else {
+            $bewertung_value = 0;
+        }
         $renderData = ['users' => $users, 'Geschirr' => $Geschirr];
-        return view('GeschirrViews.show', compact('renderData'));
+        return view('GeschirrViews.show', compact('renderData', 'bewertung', 'bewertung_value'));
     }
     /**
      * Show the form for editing the specified resource.

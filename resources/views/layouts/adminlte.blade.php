@@ -14,6 +14,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal Internet -->
   <title>Family/Shop</title>
 
+  <link rel="stylesheet" href="{{ asset('css/bewertung.css')}}" type="text/css">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
