@@ -244,5 +244,5 @@ paypal.Buttons({
 
 
 </script>
-@include('WarenkropViews.razorpayement')
+@include('WarenkorpViews.razorpayement')
                 @endsection

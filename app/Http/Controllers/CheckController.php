@@ -15,7 +15,7 @@ class CheckController extends Controller
     public function index()
     {
         $WareItems = WarenkropModel::where('user_id', Auth::id())->get();
-        return view('WarenkropViews.check', compact('WareItems'));
+        return view('WarenkorpViews.check', compact('WareItems'));
     }
     public function store(Request $request)
     {

@@ -45,7 +45,7 @@
 <div class="py-3 mb-4 shadow-sm bg-warning border-top">
     <div class="container">
 
-        <h6 class="mb-0">Geschirr/{{ $renderData['Geschirr']->name }}</h6>
+        <h6 class="mb-0">{{ $renderData['Geschirr']->kategorie }}/{{ $renderData['Geschirr']->name }}</h6>
     </div>
 </div>
 <div class="container-fluid">
@@ -58,7 +58,7 @@
                     <div class="col-md-8">
 
                         <h2 class="mb-0 bg-dark"> {{ $renderData['Geschirr']->name}}
-                            <label style="font-size: 16px;" class="float-end badge bg-danger trending_tag"> Teller</label>
+                            <label style="font-size: 16px;" class="float-end badge bg-danger trending_tag"> {{ $renderData['Geschirr']->kategorie }}</label>
                         </h2>
                         <hr>
                         <label class="me-3">Preis:{{ $renderData['Geschirr']->preis }}</label>
@@ -84,12 +84,12 @@
                 <div class="row mt-2">
                     <div class="col-md-2">
                         <input type="hidden" value="{{ $renderData['Geschirr']->id }}" id="geschirr_id">
-                        <label for="anzahl">{{ __('Menge') }}</label>
+                        <label for="menge">{{ __('Menge') }}</label>
                         <div class="input-group text-center mb-3">
 
                             <button class="input-group-text" id="decrement-btn">-</button>
 
-                            <input type="text" name="anzahl " class="form-control text-center" id="anzahl-input" value="1">
+                            <input type="text" name="menge " class="form-control text-center" id="menge" value="1">
                             <button class="input-group-text" id="increment-btn" >+</button>
 
                         </div>
@@ -111,6 +111,6 @@
 </div>
 </div>
 </div>
-@include('WarenkropViews.warenkrophinzufuegen')
-@include('GeschirrViews.counter')
+@include('WarenkorpViews.warenkrophinzufuegen')
+@include('ArtikelViews.counter')
 @endsection

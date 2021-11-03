@@ -39,7 +39,7 @@ class WarenkropController extends Controller
     public function show()
     {
         $Waren = WarenkropModel::where('user_id', Auth::id())->get();
-        return view('WarenkropViews.index', compact('Waren'));
+        return view('WarenkorpViews.warenkorp', compact('Waren'));
     }
 
     public function update(Request $request)
@@ -49,8 +49,10 @@ class WarenkropController extends Controller
         if (Auth::check()) {
             if (WarenkropModel::where('geschirr_id',  $geschirr_id)->where('user_id', Auth::id())->exists()) {
                 $produkt = WarenkropModel::where('geschirr_id',  $geschirr_id)->where('user_id', Auth::id())->first();
-                $produkt->menge = $menge;
-                $produkt->save();
+                if ($produkt) {
+                    $produkt->menge = $menge;
+                    $produkt->update();
+                }
                 return response()->json(['status' => 'Menge upgedatet!']);
             }
         }

@@ -61,6 +61,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!--<script type="text/javascript" src="responsive-tables.js"></script>-->
 <!-- Required. Replace YOUR_CLIENT_ID with your sandbox client ID. -->
 
+<!--alert-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+@if(session('status'))
+<script>
+    swal("{{ session('status') }}");
+</script>
+@endif
 
 </body>
 </html>

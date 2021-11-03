@@ -4,7 +4,7 @@
     $('#warenkrop').click(function (e) {
         e.preventDefault();
             var geschirr_id  = $(this).closest('#Geschirr_daten').find('#geschirr_id').val();
-            var menge = $(this).closest('#Geschirr_daten').find('#anzahl-input').val();
+            var menge = $(this).closest('#Geschirr_daten').find('#menge').val();
 
     $.ajaxSetup({
          headers: {

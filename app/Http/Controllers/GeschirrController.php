@@ -26,7 +26,7 @@ class GeschirrController extends Controller
     public function index()
     {
         $Geschirr = GeschirrModel::all();
-        return view('GeschirrViews.index', compact('Geschirr'));
+        return view('ArtikelViews.index', compact('Geschirr'));
     }
     /**
      * Show the form for creating a new resource.
@@ -36,7 +36,7 @@ class GeschirrController extends Controller
     public function create()
     {
         // $this->authorize('create', GeschirrModel::class);
-        return view('GeschirrViews.create');
+        return view('ArtikelViews.create');
     }
     /**
      * Store a newly created resource in storage.
@@ -51,6 +51,7 @@ class GeschirrController extends Controller
         $Geschirr = new GeschirrModel();
         $Geschirr->name = $request->input('name');
         $Geschirr->beschreibung = $request->input('beschreibung');
+        $Geschirr->kategorie = $request->input('kategorie');
         $Geschirr->preis = $request->input('preis');
         $Geschirr->anzahl = $request->input('anzahl');
         if ($request->hasFile('bild')) {
@@ -62,7 +63,7 @@ class GeschirrController extends Controller
         }
 
         $Geschirr->save();
-        return view('GeschirrViews.create');
+        return view('ArtikelViews.create');
     }
 
     /**
@@ -84,7 +85,7 @@ class GeschirrController extends Controller
             $bewertung_value = 0;
         }
         $renderData = ['users' => $users, 'Geschirr' => $Geschirr];
-        return view('GeschirrViews.show', compact('renderData', 'bewertung', 'bewertung_value'));
+        return view('ArtikelViews.show', compact('renderData', 'bewertung', 'bewertung_value'));
     }
     /**
      * Show the form for editing the specified resource.
@@ -95,7 +96,7 @@ class GeschirrController extends Controller
     public function edit($id)
     {
         $Geschirr = GeschirrModel::find($id);
-        return view('GeschirrViews.edit', compact('Geschirr'));
+        return view('ArtikelViews.edit', compact('Geschirr'));
     }
     public function update(Request $request, $id)
     {
@@ -106,6 +107,7 @@ class GeschirrController extends Controller
 
         $Geschirr->name = $request->input('name');
         $Geschirr->beschreibung = $request->input('beschreibung');
+        $Geschirr->kategorie = $request->input('kategorie');
         $Geschirr->preis = $request->input('preis');
         $Geschirr->anzahl = $request->input('anzahl');
         if ($request->hasFile('bild')) {
@@ -121,7 +123,7 @@ class GeschirrController extends Controller
             $Geschirr->bild = $filename;
         }
         $Geschirr->save();
-        return view('GeschirrViews.index');
+        return view('ArtikelViews.index')->with('status', "Artikel upgedatet !");
     }
 
     public function destroy($id)
@@ -134,6 +136,6 @@ class GeschirrController extends Controller
             }
         }
         $Geschirr->delete();
-        return view('GeschirrViews.index');
+        return view('ArtikelViews.index');
     }
 }

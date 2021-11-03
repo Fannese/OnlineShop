@@ -56,8 +56,3 @@ Route::get('/Geschirr-index', [GeschirrController::class, 'index'])->name('Gesch
 Route::post('/Geschirr-store', [GeschirrController::class, 'store'])->name('Geschirr-store');
 Route::get('/Geschirr.show/{id}', [GeschirrController::class, 'show'])->name('Geschirr.show');
 Route::post('update-menge', [WarenkropController::class, 'update']);
-
-
-
-
-Route::get('/Elektronik-Home', [ElektronikController::class, 'index'])->name('Elektronik-Home');

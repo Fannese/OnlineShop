@@ -52,6 +52,20 @@
                                     </span>
                                 @enderror
                             </div>
+
+                            <div class="form-group row">
+                                <label for="kategorie" class="col-md-4 col-form-label text-md-right">{{ __('Kategorie') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="kategorie" type="text" class="form-control @error('kategorie') is-invalid @enderror" name="kategorie" value="{{ old('kategorie') }}" required autocomplete="kategorie" autofocus>
+
+                                    @error('kategorie')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <label for="preis" class="col-md-4 col-form-label text-md-right">{{ __('Preis') }}</label>
 
