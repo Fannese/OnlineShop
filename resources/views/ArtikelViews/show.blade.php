@@ -50,7 +50,7 @@
 </div>
 <div class="container-fluid">
     <div class="card shadow" id="Geschirr_daten">
-        <div class="card-body">
+        <div class="card-body"  style="background-color: blue">
             <div class="row">
                 <div class="col-md-4 border-right">
                          <img src="{{ asset('GeschirrBilder/'. $renderData['Geschirr']->bild) }}" width="300px" height="200px" alt="file_path" >
@@ -107,7 +107,9 @@
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                    Bewertung abgeben!
                 </button>
+
     </div>
+</div>
 </div>
 </div>
 </div>

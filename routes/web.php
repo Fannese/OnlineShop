@@ -52,6 +52,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/Geschirr-index', [GeschirrController::class, 'index'])->name('Geschirr-index');
+//Route::get('/search', [GeschirrController::class, 'search']);
 
 Route::post('/Geschirr-store', [GeschirrController::class, 'store'])->name('Geschirr-store');
 Route::get('/Geschirr.show/{id}', [GeschirrController::class, 'show'])->name('Geschirr.show');

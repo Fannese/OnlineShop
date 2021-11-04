@@ -6,7 +6,9 @@ use App\Models\BewertungsModel;
 use App\Models\GeschirrModel;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Symfony\Component\Console\Input\Input;
 
 class GeschirrController extends Controller
 
@@ -23,10 +25,17 @@ class GeschirrController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
+        $q = $request->input('q');
+        if (($q != "")) {
+            $Geschirr = GeschirrModel::where('name', 'LIKE', '%' . $q . '%')
+                ->orWhere('preis', 'LIKE', '%' . $q . '%')->get();
+        }
+
         $Geschirr = GeschirrModel::all();
-        return view('ArtikelViews.index', compact('Geschirr'));
+        return view('ArtikelViews.index', compact('Geschirr'))->with($q);
     }
     /**
      * Show the form for creating a new resource.

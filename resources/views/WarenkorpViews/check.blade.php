@@ -1,7 +1,7 @@
 @extends('layouts.adminlte')
 @section('content')
 
-    <div class="container-fluid">
+    <div class="container-fluid"  style="background-color: blue">
         <div>
             @if(session()->has('message'))
             <div class="alert alert-success">
@@ -14,7 +14,7 @@
         <div class="row">
         <div class="col-md-7" >
             <div class="card">
-            <div class="card-body">
+            <div class="card-body"  style="background-color: blue">
                 @php
                     $preistotal = 0;
 

@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="card shadow" >
-            <div class="card-body">
+            <div class="card-body"  style="background-color: blue">
                 @php
                 $total=0;
             @endphp
@@ -64,6 +64,7 @@
 </div>
     </div>
 </div>
+    </div>
     @include('WarenkorpViews.warenkrophinzufuegen')
     @include('ArtikelViews.counter')
 
