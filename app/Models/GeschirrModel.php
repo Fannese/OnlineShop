@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\OrderModel;
 
 class GeschirrModel extends Model
 {
@@ -19,4 +20,9 @@ class GeschirrModel extends Model
         'kategorie',
 
     ];
+
+    public function zugriff()
+    {
+        return $this->hasOne(OrderModel::class, 'user_id', 'id');
+    }
 }

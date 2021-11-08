@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\OrderItem;
+use App\Models\GeschirrModel;
 
 class OrderModel extends Model
 {
@@ -32,6 +33,6 @@ class OrderModel extends Model
     }
     public function zugriff()
     {
-        return $this->belongsTo(GeschirrModel::class, 'geschirr_id', 'id');
+        return $this->belongsTo(GeschirrModel::class, 'name', 'id');
     }
 }

@@ -9,7 +9,7 @@
             </div>
             @endif
         </div>
-        <form method="POST" action="{{ route('order') }}">
+        <form method="POST" action="{{ url('uebersicht') }}">
             @csrf
         <div class="row">
         <div class="col-md-7" >
@@ -160,7 +160,7 @@
                     @endforeach
                 </table>
 <hr>
-                <input type="hidden" name="zalung_methode" value="COD">
+                <input type="hidden" name="zalung_methode" id="zalung_methode" value="COD">
                         <button type="submit" class="btn btn-success w-100 mb-2">
                             Order | COD
                         </button>
@@ -181,7 +181,7 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-     <script src="https://www.paypal.com/sdk/js?client-id=ARt3bJcllFh-eoF63scl6nYiAJLBgmoZkdzIK2qTuDrbNF5mRSBl34Ou9SpSSVylpfW0xu_bIp_BrHbx"></script>
+     <script src="https://www.paypal.com/sdk/js?client-id=ASRGTCbcqLAvrKPUcFXLXjYTimH2RXCDpZ6lKAsSzl54RpvcGSQohRN0Cs-lSbnBbxyC9EpMzAnjMW3m"></script>
      <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <script>
@@ -213,9 +213,15 @@ paypal.Buttons({
       var stadt=$('.stadt').val();
       var land=$('.land').val();
       var telephon_nummer=$('.telephon_nummer').val();
+
+      $.ajaxSetup({
+         headers: {
+             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
       $.ajax({
           method: "post",
-          url: "/payment",
+          url: "/uebersicht",
           data: {
               'vorname': vorname,
               'name': name,
@@ -226,12 +232,12 @@ paypal.Buttons({
               'land':land,
               'telephon_nummer':telephon_nummer,
               'zalung_methode': "Paypal",
-              'zalung_id':response.details.id,
+              'zalung_id':details.id,
           },
           success: function (response) {
 
               swal(response.status);
-              windows.location.href="/my-orders";
+              window.location.href="/my-orders";
 
           }
       });

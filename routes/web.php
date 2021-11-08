@@ -33,8 +33,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/warenkorp', [WarenkropController::class, 'show'])->name('waren');
     Route::delete('/loeschen/{id}', [WarenkropController::class, 'destroy'])->name('loeschen');
     Route::get('check', [CheckController::class, 'index'])->name('ueberpruefen');
-    Route::post('/uebersicht', [CheckController::class, 'store'])->name('order');
-    Route::post('payment', [CheckController::class, 'rezorpay']);
+    Route::post('uebersicht', [CheckController::class, 'store']);
+    //Route::post('paypal', [CheckController::class, 'store']);
+    //Route::post('payment', [CheckController::class, 'rezorpay']);
     Route::get('Bewertung', [CheckController::class, 'bewertung']);
     //Route::post('handle-payment', [PaymentController::class, 'handelpayment'])->name('handle');
 });

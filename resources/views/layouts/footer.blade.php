@@ -2,8 +2,9 @@
  <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      Anything you want
+        Family Shop 2021
+        <img src="{{ asset('assets/images/happy-shop.webp') }}" width="300px" height="200px" ></img>
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong> Zahlung Methode <img src="{{ asset('assets/images/paypal-784403_1280.webp') }}" width="300px" height="200px" ></img>.</strong>
   </footer>

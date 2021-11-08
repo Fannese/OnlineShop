@@ -59,34 +59,6 @@ class CheckController extends Controller
 
         return redirect('/')->with('message', 'Bestellung erfolgreich');
     }
-    public function rezorpay(Request $request)
-    {
-        $WareItems = WarenkropModel::where('user_id', Auth::id())->get();
-        $preistotal = 0;
-        foreach ($WareItems as $item) {
-            $preistotal +=  ((int)$item->geschirrzugriff->preis * (int)$item->menge);
-        }
-        $vorname = $request->input('vorname');
-        $name = $request->input('name');
-        $email = $request->input('email');
-        $straße = $request->input('straße');
-        $plz = $request->input('plz');
-        $stadt = $request->input('stadt');
-        $land = $request->input('land');
-        $telephon_nummer = $request->input('telephon_nummer');
-
-        return response()->json([
-            'vorname' => $vorname,
-            'name' => $name,
-            'email' => $email,
-            'straße' => $straße,
-            'plz' => $plz,
-            'stadt' => $stadt,
-            'land' => $land,
-            'telephon_nummer' => $telephon_nummer,
-            'preistotal' => $preistotal,
-        ]);
-    }
 
     public function bewertung(Request $request)
     {
