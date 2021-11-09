@@ -1,7 +1,7 @@
 @extends('layouts.adminlte')
 @section('content')
 <div class="container-fluid" style="background-image:url('{{ asset('assets/images/unnamed.jpg') }}'); background-size:150%">
-    <div class="row">
+    <div class="row" id="row1">
         <div class="col-md-12 mt-3">
 
             <div class="card-header">
@@ -9,23 +9,17 @@
             <a href="{{ route('Geschirr.create') }}" class="float-right"> Hinzufügen </a>
 
             </div>
-            <form action="{{ route('Geschirr-index') }}" method="GET" class="col-9" role="search">
-                @csrf
-                <div class="form-group">
-                  <input type="search" name="search" id="" class="form-control" placeholder="suche bei name">
+<!--search-->
+        <input id="myInput" type="search" class="form-control" placeholder="Search for names..">
 
-                </div>
-                    <button class="btn btn-primary" type="submit">Search </button>
-                </form>
-            <div class="card-body">
-
+            <div class="card-body" id="search1">
                     @foreach($Geschirr as $key=> $geschirr)
                     <div class="col-6 col-md-6" {{$key == 0 ? 'active' : ''}}>
 
                         <figure>
-                           <img src="{{ asset('GeschirrBilder/'. $geschirr->bild) }}" width="300px" height="200px"   alt="bild" >
+                           <img src="{{ asset('GeschirrBilder/'. $geschirr->bild) }}" width="300px" height="200px" alt="bild" >
                         </figure>
-                        <div class="card-body">
+                        <div class="card-body" id="li">
                         <a href="/Geschirr.show/{{ $geschirr->id }}"><dd>{{ $geschirr->name }}</dd></a>
 
                             <dd>{{ $geschirr->preis }}</dd>
@@ -48,4 +42,18 @@
 </div>
 </div>
 
+<!--Search-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+
+    $("#search1 dd").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+
+  });
+});
+</script>
 @endsection

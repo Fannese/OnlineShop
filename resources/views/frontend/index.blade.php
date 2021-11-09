@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+<!-- zur zeit nicht als frontend view benutzt-->
 <!--slidershow-->
 
 <!--end slider-->

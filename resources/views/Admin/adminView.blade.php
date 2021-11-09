@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="card shadow" >
-        <div class="card-header bg-primary">{{ __(' New Orders') }}</div>
+        <div class="card-header bg-primary">{{ __('Orders List') }}</div>
 
             <div class="table-responsive">
                 <table class="table">

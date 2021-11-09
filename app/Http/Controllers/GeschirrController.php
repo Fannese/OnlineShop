@@ -28,14 +28,8 @@ class GeschirrController extends Controller
     public function index(Request $request)
     {
 
-        $q = $request->input('q');
-        if (($q != "")) {
-            $Geschirr = GeschirrModel::where('name', 'LIKE', '%' . $q . '%')
-                ->orWhere('preis', 'LIKE', '%' . $q . '%')->get();
-        }
-
         $Geschirr = GeschirrModel::all();
-        return view('ArtikelViews.index', compact('Geschirr'))->with($q);
+        return view('ArtikelViews.index', compact('Geschirr'));
     }
     /**
      * Show the form for creating a new resource.
