@@ -15,7 +15,7 @@ class CreateWarenkropTable extends Migration
     {
         Schema::create('warenkrop', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+
             $table->string('geschirr_id');
             $table->string('menge');
             $table->timestamps();

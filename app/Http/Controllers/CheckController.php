@@ -14,7 +14,8 @@ class CheckController extends Controller
 {
     public function index()
     {
-        $WareItems = WarenkropModel::where('user_id', Auth::id())->get();
+        //$WareItems = WarenkropModel::where('user_id', Auth::id())->get();
+        $WareItems = WarenkropModel::all();
         return view('WarenkorpViews.check', compact('WareItems'));
     }
     public function store(Request $request)
@@ -33,7 +34,8 @@ class CheckController extends Controller
         $order->telephon_nummer = $request->input('telephon_nummer');
 
         $preistotal = 0;
-        $caritempreis = WarenkropModel::where('user_id', Auth::id())->get();
+        // $caritempreis = WarenkropModel::where('user_id', Auth::id())->get();
+        $caritempreis = WarenkropModel::all();
         foreach ($caritempreis as $prod) {
             $preistotal += ((int)$prod->geschirrzugriff->preis * (int)$prod->menge);
         }
@@ -42,7 +44,8 @@ class CheckController extends Controller
 
         $order->save();
 
-        $WareItems = WarenkropModel::where('user_id', Auth::id())->get();
+        // $WareItems = WarenkropModel::where('user_id', Auth::id())->get();
+        $WareItems = WarenkropModel::all();
         foreach ($WareItems as $Item) {
             OrderItem::create([
                 'order_id' => $order->id,
@@ -51,7 +54,8 @@ class CheckController extends Controller
                 'preis' => $Item->geschirrzugriff->preis,
             ]);
         }
-        $WareItems = WarenkropModel::where('user_id', Auth::id())->get();
+        //$WareItems = WarenkropModel::where('user_id', Auth::id())->get();
+        $WareItems = WarenkropModel::all();
         WarenkropModel::destroy($WareItems);
         if ($request->input('zalung_methode') == 'Paypal') {
             return response()->json(['status' => 'Bestellung erfolgreich']);

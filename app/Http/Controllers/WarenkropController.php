@@ -14,31 +14,28 @@ class WarenkropController extends Controller
         $geschirr_id = $request->input('geschirr_id');
         $menge = $request->input('menge');
 
-        if (Auth::check()) {
-            $produkt_check = GeschirrModel::where('id', $geschirr_id)->first();
+        $produkt_check = GeschirrModel::where('id', $geschirr_id)->first();
 
-            if ($produkt_check) {
-                if (WarenkropModel::where('geschirr_id',  $geschirr_id)->where('user_id', Auth::id())->exists()) {
-                    return response()->json(['status' => $produkt_check->name . 'melden Sie sich an um vorzufahren!']);
-                } else {
+        if ($produkt_check) {
+            if (WarenkropModel::where('geschirr_id',  $geschirr_id)->exists()) {
+                return response()->json(['status' => $produkt_check->name . 'melden Sie sich an um vorzufahren!']);
+            } else {
 
 
-                    $PoduktItem = new WarenkropModel();
-                    $PoduktItem->geschirr_id = $geschirr_id;
-                    $PoduktItem->user_id = Auth::id();
-                    $PoduktItem->menge = $menge;
-                    $PoduktItem->save();
-                    return response()->json(['status' => $produkt_check->name . 'wurde im Warenkrop hinzugeführt!']);
-                }
+                $PoduktItem = new WarenkropModel();
+                $PoduktItem->geschirr_id = $geschirr_id;
+                //$PoduktItem->user_id = Auth::id();
+                $PoduktItem->menge = $menge;
+                $PoduktItem->save();
+                return response()->json(['status' => $produkt_check->name . 'wurde im Warenkrop hinzugeführt!']);
             }
-        } else {
-            return response()->json(['status' => 'melden Sie sich an um vorzufahren!']);
         }
     }
 
     public function show()
     {
-        $Waren = WarenkropModel::where('user_id', Auth::id())->get();
+        //$Waren = WarenkropModel::where('user_id', Auth::id())->get();
+        $Waren = WarenkropModel::all();
         return view('WarenkorpViews.warenkorp', compact('Waren'));
     }
 
@@ -46,15 +43,14 @@ class WarenkropController extends Controller
     {
         $geschirr_id = $request->input('geschirr_id');
         $menge = $request->input('menge');
-        if (Auth::check()) {
-            if (WarenkropModel::where('geschirr_id',  $geschirr_id)->where('user_id', Auth::id())->exists()) {
-                $produkt = WarenkropModel::where('geschirr_id',  $geschirr_id)->where('user_id', Auth::id())->first();
-                if ($produkt) {
-                    $produkt->menge = $menge;
-                    $produkt->update();
-                }
-                return response()->json(['status' => 'Menge upgedatet!']);
+
+        if (WarenkropModel::where('geschirr_id',  $geschirr_id)->exists()) {
+            $produkt = WarenkropModel::where('geschirr_id',  $geschirr_id)->first();
+            if ($produkt) {
+                $produkt->menge = $menge;
+                $produkt->update();
             }
+            return response()->json(['status' => 'Menge upgedatet!']);
         }
     }
 

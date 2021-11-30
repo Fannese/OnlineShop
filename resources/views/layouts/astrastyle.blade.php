@@ -9,10 +9,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Home - Office Furniture Store" />
 <meta property="og:description" content="Home Office Furniture Stay productive and get more work done! Shop Collection Wooden Desk Chairs Laptop Stands Tables Chairs Laptop stands Monitor stands Cabinets Mouse pads Study lamps Desk plants New Arrivals Boost your productivity View all products Free Shipping Lorem ipsum amet consectetur Support 24/7 Lorem ipsum amet consectetur Money return Lorem ipsum amet &hellip; Home Read More &raquo;" />
-<meta property="og:url" content="https://websitedemos.net/office-furniture-store-04/" />
+<meta property="og:url" content="#" />
 <meta property="og:site_name" content="Office Furniture Store" />
 <meta property="article:modified_time" content="2021-09-06T07:08:58+00:00" />
-<meta property="og:image" content="https://websitedemos.net/office-furniture-store-04/wp-content/uploads/sites/913/2021/07/office-furniture-store-home-featured-collection-img-3.png" />
+
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:label1" content="Est. reading time" />
 <meta name="twitter:data1" content="3 minutes" />
@@ -1457,10 +1457,11 @@ Skip to content</a>
 </div>
 <div class="site-header-primary-section-center site-header-section ast-flex ast-grid-section-center">
 <div class="ast-builder-menu-1 ast-builder-menu ast-flex ast-builder-menu-1-focus-item ast-builder-layout-element site-header-focus-item" data-section="section-hb-menu-1">
-<div class="ast-main-header-bar-alignment"><div class="main-header-bar-navigation"><nav class="site-navigation ast-flex-grow-1 navigation-accessibility site-header-focus-item" id="primary-site-navigation" aria-label="Site Navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope"><div class="main-navigation ast-inline-flex"><ul id="ast-hf-menu-1" class="main-header-menu ast-menu-shadow ast-nav-menu ast-flex  submenu-with-border stack-on-mobile"><li id="menu-item-397" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-27 current_page_item menu-item-397"><a href="https://websitedemos.net/office-furniture-store-04/" aria-current="page" class="menu-link">Home</a></li>
+<div class="ast-main-header-bar-alignment"><div class="main-header-bar-navigation"><nav class="site-navigation ast-flex-grow-1 navigation-accessibility site-header-focus-item" id="primary-site-navigation" aria-label="Site Navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope"><div class="main-navigation ast-inline-flex"><ul id="ast-hf-menu-1" class="main-header-menu ast-menu-shadow ast-nav-menu ast-flex  submenu-with-border stack-on-mobile">
+
 <li id="menu-item-398" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-398"><a href="{{ route('Geschirr-index') }}" class="menu-link">Shop</a></li>
-<li id="menu-item-557" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-557"><a href="https://websitedemos.net/office-furniture-store-04/about/" class="menu-link">About</a></li>
-<li id="menu-item-623" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-623"><a href="https://websitedemos.net/office-furniture-store-04/contact/" class="menu-link">Contact</a></li>
+<li id="menu-item-557" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-557"><a href="#" class="menu-link">About</a></li>
+<li id="menu-item-623" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-623"><a href="#" class="menu-link">Contact</a></li>
 </ul></div></nav></div></div> </div> @guest
 @if (Route::has('login'))
     <li class="nav-item">
@@ -1567,16 +1568,7 @@ Skip to content</a>
 											</div>
 						</div>
 	</div>
-		<div class="ast-mobile-header-content content-align-flex-start ">
-				<div class="ast-builder-menu-mobile ast-builder-menu ast-builder-menu-mobile-focus-item ast-builder-layout-element site-header-focus-item" data-section="section-header-mobile-menu">
-			<div class="ast-main-header-bar-alignment"><div class="main-header-bar-navigation"><nav class="site-navigation ast-flex-grow-1 navigation-accessibility site-header-focus-item" id="ast-mobile-site-navigation" aria-label="Site Navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope"><div class="main-navigation"><ul id="ast-hf-mobile-menu" class="main-header-menu ast-nav-menu ast-flex  submenu-with-border astra-menu-animation-fade  stack-on-mobile"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-27 current_page_item menu-item-397"><a href="https://websitedemos.net/office-furniture-store-04/" aria-current="page" class="menu-link">Home</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-398"><a href="https://websitedemos.net/office-furniture-store-04/shop/" class="menu-link">Shop</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-815"><a href="https://websitedemos.net/office-furniture-store-04/office-setups/" class="menu-link">Office</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-816"><a href="https://websitedemos.net/office-furniture-store-04/home-office-setups/" class="menu-link">Home Office</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-557"><a href="https://websitedemos.net/office-furniture-store-04/about/" class="menu-link">About</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-623"><a href="https://websitedemos.net/office-furniture-store-04/contact/" class="menu-link">Contact</a></li>
-</ul></div></nav></div></div>		</div>
-			</div>
+
 </div>
 		</header>
 			<div id="content" class="site-content">

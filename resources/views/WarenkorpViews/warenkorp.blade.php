@@ -2,11 +2,13 @@
 @section('content')
     <div class="container-fluid">
         <div class="card shadow" >
-            <div class="card-body"  style="background-color: blue">
+            <div class="card-body"  style="background-color:orangered">
                 @php
                 $total=0;
             @endphp
            @foreach($Waren as $waren)
+
+
                 <div class="row" id="Geschirr_daten">
                      <div class="col-md-3">
                  <img src="{{ asset('GeschirrBilder/'.$waren->geschirrzugriff->bild) }}" width="300px" height="200px" alt="file_path" >
@@ -65,8 +67,10 @@
     </div>
 </div>
     </div>
-    @include('WarenkorpViews.warenkrophinzufuegen')
-    @include('ArtikelViews.counter')
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ asset('js/warenkrophinzufuegen.js') }}"></script>
+    <script src="{{ asset('js/counter.js') }}"></script>
 
 
 @endsection

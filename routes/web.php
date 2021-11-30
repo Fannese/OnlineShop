@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderModelController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\WarenkropController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,11 +30,7 @@ Route::get('/', [FrontendController::class, 'index']);
 Auth::routes();
 //Warenkrop
 Route::middleware(['auth'])->group(function () {
-    Route::post('warenkrop-hinzufuegen', [WarenkropController::class, 'hinzufuegen']);
-    Route::get('/warenkorp', [WarenkropController::class, 'show'])->name('waren');
-    Route::delete('/loeschen/{id}', [WarenkropController::class, 'destroy'])->name('loeschen');
-    Route::get('check', [CheckController::class, 'index'])->name('ueberpruefen');
-    Route::post('uebersicht', [CheckController::class, 'store']);
+
     //Route::post('paypal', [CheckController::class, 'store']);
     //Route::post('payment', [CheckController::class, 'rezorpay']);
     Route::get('Bewertung', [CheckController::class, 'bewertung']);
@@ -50,11 +47,17 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/edit/{id}', [listController::class, 'edit']);
     Route::put('/update/{id}', [listController::class, 'update']);
     Route::get('users_list', [listController::class, 'user'])->name('user');
+    Route::post('/Geschirr-store', [GeschirrController::class, 'store'])->name('Geschirr-store');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/Geschirr-index', [GeschirrController::class, 'index'])->name('Geschirr-index');
 //Route::get('/search', [GeschirrController::class, 'search']);
 
-Route::post('/Geschirr-store', [GeschirrController::class, 'store'])->name('Geschirr-store');
+
 Route::get('/Geschirr.show/{id}', [GeschirrController::class, 'show'])->name('Geschirr.show');
 Route::post('update-menge', [WarenkropController::class, 'update']);
+Route::post('warenkrop-hinzufuegen', [WarenkropController::class, 'hinzufuegen']);
+Route::get('/warenkorp', [WarenkropController::class, 'show'])->name('waren');
+Route::delete('/loeschen/{id}', [WarenkropController::class, 'destroy'])->name('loeschen');
+Route::get('check', [CheckController::class, 'index'])->name('ueberpruefen');
+Route::post('uebersicht', [CheckController::class, 'store']);

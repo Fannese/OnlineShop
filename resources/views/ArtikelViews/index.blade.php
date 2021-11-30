@@ -13,12 +13,12 @@
         <input id="myInput" type="search" class="form-control" placeholder="Search for names..">
 
             <div class="card-body" id="search1">
-                    @foreach($Geschirr as $key=> $geschirr)
-                    <div class="col-6 col-md-6" {{$key == 0 ? 'active' : ''}}>
+                    @foreach($Geschirr as  $geschirr)
+                    <div class="col-6 col-md-6">
 
-                        <figure>
-                           <img src="{{ asset('GeschirrBilder/'. $geschirr->bild) }}" width="300px" height="200px" alt="bild" >
-                        </figure>
+                        <div id="Bilder">
+                           <img src="{{ asset('GeschirrBilder/'. $geschirr->bild) }}" width="400px" height="auto" alt="bild" >
+                        </div>
                         <div class="card-body" id="li">
                         <a href="/Geschirr.show/{{ $geschirr->id }}"><dd>{{ $geschirr->name }}</dd></a>
 
@@ -44,6 +44,7 @@
 
 <!--Search-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link href="{{ asset('css/ArtikelIndex.css') }}" rel="stylesheet"></link>
 <script>
 $(document).ready(function(){
   $("#myInput").on("keyup", function() {

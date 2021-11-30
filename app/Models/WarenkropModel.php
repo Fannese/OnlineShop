@@ -10,7 +10,7 @@ class WarenkropModel extends Model
     use HasFactory;
     protected $table = 'warenkrop';
     protected $fillable = [
-        'user_id',
+
         'geschirr_id',
         'menge',
     ];

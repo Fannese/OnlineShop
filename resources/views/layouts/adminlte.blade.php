@@ -12,7 +12,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensures optimal rendering on mobile devices. -->
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal Internet -->
-  <title>Family/Shop</title>
+  <title>HappyShop</title>
 
   <link rel="stylesheet" href="{{ asset('css/bewertung.css')}}" type="text/css">
   <!-- Google Font: Source Sans Pro -->

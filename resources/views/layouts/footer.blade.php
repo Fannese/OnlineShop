@@ -2,7 +2,7 @@
  <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-        Family Shop 2021
+        HappyShop 2021
         <img src="{{ asset('assets/images/happy-shop.webp') }}" width="300px" height="200px" ></img>
     </div>
     <!-- Default to the left -->
