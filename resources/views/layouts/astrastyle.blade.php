@@ -1460,8 +1460,8 @@ Skip to content</a>
 <div class="ast-main-header-bar-alignment"><div class="main-header-bar-navigation"><nav class="site-navigation ast-flex-grow-1 navigation-accessibility site-header-focus-item" id="primary-site-navigation" aria-label="Site Navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope"><div class="main-navigation ast-inline-flex"><ul id="ast-hf-menu-1" class="main-header-menu ast-menu-shadow ast-nav-menu ast-flex  submenu-with-border stack-on-mobile">
 
 <li id="menu-item-398" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-398"><a href="{{ route('Geschirr-index') }}" class="menu-link">Shop</a></li>
-<li id="menu-item-557" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-557"><a href="#" class="menu-link">About</a></li>
-<li id="menu-item-623" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-623"><a href="#" class="menu-link">Contact</a></li>
+<li id="menu-item-557" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-557"><a href="{{ route('about') }}" class="menu-link">About</a></li>
+<li id="menu-item-623" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-623"><a href="{{ route('contact') }}" class="menu-link">Contact</a></li>
 </ul></div></nav></div></div> </div> @guest
 @if (Route::has('login'))
     <li class="nav-item">

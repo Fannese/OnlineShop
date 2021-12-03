@@ -14,4 +14,12 @@ class FrontendController extends Controller
         $Sliders = GeschirrModel::all();
         return view('frontend.astra', compact('Sliders'));
     }
+    public function about()
+    {
+        return view('frontend.AboutUs');
+    }
+    public function contact()
+    {
+        return view('frontend.contact');
+    }
 }

@@ -61,3 +61,5 @@ Route::get('/warenkorp', [WarenkropController::class, 'show'])->name('waren');
 Route::delete('/loeschen/{id}', [WarenkropController::class, 'destroy'])->name('loeschen');
 Route::get('check', [CheckController::class, 'index'])->name('ueberpruefen');
 Route::post('uebersicht', [CheckController::class, 'store']);
+Route::get('/about', [FrontendController::class, 'about'])->name('about');
+Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');

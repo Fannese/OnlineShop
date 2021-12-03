@@ -1,10 +1,9 @@
-* {
-    padding: 0;
-    margin: 0;
-}
-#Bilder img {
-    cursor: pointer;
-    margin: 11px 3%;
-    border: 1px solid #ccc;
-    box-shadow: 5px 5px 5px #666;
+#text {
+    text-align: justify;
+
+    padding: 0 20px 0 20px;
+    justify-content: center;
+    display: flow-root;
+    box-sizing: border-box;
+    margin: 1em auto;
 }
