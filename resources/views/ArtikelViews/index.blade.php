@@ -14,10 +14,8 @@
 
             <div class="card-body" id="search1">
                     @foreach($Geschirr as  $geschirr)
-                    <div class="col-6 col-md-6">
-
                         <div id="Bilder">
-                           <img src="{{ asset('GeschirrBilder/'. $geschirr->bild) }}" width="400px" height="auto" alt="bild" >
+                           <img src="{{ asset('GeschirrBilder/'. $geschirr->bild) }}"  alt="bild" >
                         </div>
                         <div class="card-body" id="li">
                         <a href="/Geschirr.show/{{ $geschirr->id }}"><dd>{{ $geschirr->name }}</dd></a>
@@ -36,7 +34,7 @@
                                 </form>
                     @endforeach
     </div>
-</div>
+
 </div>
 </div>
 </div>
