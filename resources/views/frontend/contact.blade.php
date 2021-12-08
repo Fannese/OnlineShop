@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-@include('layouts.astrastyle')
+@include('layouts.astranavbar')
 
 			</header>
 

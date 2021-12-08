@@ -1,6 +1,13 @@
 @extends('layouts.adminlte')
 @section('content')
-<div class="container-fluid" style="background-image:url('{{ asset('assets/images/unnamed.jpg') }}'); background-size:150%">
+<div class="container-fluid" style="background-image:url('{{ asset('assets/images/home.jpg') }}'); no-repeat center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-repeat:no-repeat;
+height:110vh;
+widght:200px
+background-size:contain">
     <div class="row" id="row1">
         <div class="col-md-12 mt-3">
 

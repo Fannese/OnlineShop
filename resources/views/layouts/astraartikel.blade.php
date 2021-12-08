@@ -1,3 +1,4 @@
+@include('layouts.astracss')
 @include('layouts.astrastyle')
 				<section class="elementor-section elementor-top-section elementor-element elementor-element-bd7bb1b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="bd7bb1b" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
                     <div class="elementor-container elementor-column-gap-no">

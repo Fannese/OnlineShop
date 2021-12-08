@@ -25,9 +25,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-
-    @include('layouts.adminnavbar')
     @include('layouts.adminsidebar')
+
+    @include('layouts.astranavbar')
+
   <!-- Content Wrapper. Contains page content -->
 
   <div class="content-wrapper">
@@ -44,8 +45,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
   </aside>
   <!-- /.control-sidebar -->
-
-  @include('layouts.footer')
+@include('layouts.astracss')
+  @include('frontend.astrafooter')
 </div>
 
 <!-- ./wrapper -->
