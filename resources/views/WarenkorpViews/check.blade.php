@@ -164,7 +164,7 @@
                         <button type="submit" class="btn btn-success w-100 mb-2">
                             Order | COD
                         </button>
-                        <button type="button" class="btn btn-primary w-100 mb-2 razorpay_btn"> zahlen mit Razorpay </button>
+
 
                         <div id="paypal-button-container"></div>
             </div>
@@ -250,5 +250,5 @@ paypal.Buttons({
 
 
 </script>
-@include('WarenkorpViews.razorpayement')
+
                 @endsection

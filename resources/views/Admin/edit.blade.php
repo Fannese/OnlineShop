@@ -24,7 +24,7 @@
                     <div class="row">
                         <div class="col-md-6 order-details">
                             <h4>Shopping Details</h4>
-<form action="{{ url('/update', $order->id) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ url('/update',$order->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 

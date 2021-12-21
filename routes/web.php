@@ -36,6 +36,7 @@ Route::middleware(['auth'])->group(function () {
     //Route::post('payment', [CheckController::class, 'rezorpay']);
     Route::get('Bewertung', [CheckController::class, 'bewertung']);
     //Route::post('handle-payment', [PaymentController::class, 'handelpayment'])->name('handle');
+    Route::post('uebersicht', [CheckController::class, 'store']);
 });
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/Geschirr-create', [GeschirrController::class, 'create'])->name('Geschirr.create');
@@ -61,7 +62,7 @@ Route::post('warenkrop-hinzufuegen', [WarenkropController::class, 'hinzufuegen']
 Route::get('/warenkorp', [WarenkropController::class, 'show'])->name('waren');
 Route::delete('/loeschen/{id}', [WarenkropController::class, 'destroy'])->name('loeschen');
 Route::get('check', [CheckController::class, 'index'])->name('ueberpruefen');
-Route::post('uebersicht', [CheckController::class, 'store']);
+
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::post('/kontakt', [KontaktController::class, 'store'])->name('kontakt');

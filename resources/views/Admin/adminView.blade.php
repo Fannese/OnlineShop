@@ -24,7 +24,7 @@
                         <td>{{ $order->sendung_nr }}</td>
 
                         <td>
-                            <a href="{{ url('/admin/view-orders/'.$order->id) }}" class="btn btn-primary"> View </a>
+                            <a href="/admin/view-orders/{{  $order->id}}" class="btn btn-primary"> View </a>
                         </td>
 
                           @endforeach
@@ -34,5 +34,5 @@
 
         </div>
     </div>
-</div>
+
 @endsection

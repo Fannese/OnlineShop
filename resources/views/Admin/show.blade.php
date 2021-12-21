@@ -51,6 +51,7 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         <tr>
                             <td>{{ $prods->name }}</td>
                             <td>
@@ -58,8 +59,9 @@
                                     <img src="{{ asset('GeschirrBilder/'. $prods->bild) }}" width="300px" height="200px"   alt="bild" >
                                  </figure>
                              </td>
-                    @foreach($orders->oderitems as $order)
 
+
+                @foreach($orders->oderitems as $order)
 
                          <td>{{ $order->menge }}</td>
                          <td>{{ $order->preis }}</td>
@@ -67,21 +69,25 @@
                             <a href="{{ url('/edit/'.$order->id) }}" class="btn btn-dark">Edit</a>
                          </td>
 
-                    @endforeach
 
+                         @endforeach
                 </tr>
             </tbody>
                 </table>
             </div>
 
 
-            <a href="{{ route('waren') }}" class="btn btn-warning"><i class="fas fa-arrow-circle-left">Zurück</i></a>
+            <a href="{{ route('Bestellungen.index') }}" class="btn btn-warning"><i class="fas fa-arrow-circle-left">Zurück</i></a>
 
         </div>
 
 
     </div>
 </div>
+    </div>
+            </div>
+        </div>
+        </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 

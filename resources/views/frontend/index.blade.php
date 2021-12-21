@@ -6,7 +6,7 @@
 <!--slidershow-->
 
 <!--end slider-->
-<div class="py-5" style="background-image:url('{{ asset('assets/images/bild1.jpg') }}'); background-size:100%">
+<div  style="background-image:url('{{ asset('assets/images/bild1.jpg') }}'); background-size:100%">
     <div class="container">
         <div class="row">
             <div class="owl-carousel owl-theme">

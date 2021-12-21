@@ -1,11 +1,12 @@
 @extends('layouts.adminlte')
 @section('content')
+<header>
 <div class="container-fluid" style="background-image:url('{{ asset('assets/images/home.jpg') }}'); no-repeat center center fixed;
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
 background-repeat:no-repeat;
-height:110vh;
+height:120vh;
 widght:200px
 background-size:contain">
     <div class="row" id="row1">
@@ -46,7 +47,7 @@ background-size:contain">
 </div>
 </div>
 </div>
-
+</header>
 <!--Search-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link href="{{ asset('css/ArtikelIndex.css') }}" rel="stylesheet"></link>
